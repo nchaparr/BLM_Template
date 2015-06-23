@@ -1,0 +1,244 @@
+%%%%%%%%%%%%%%%%%%%%%%% file template.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is a general template file for the LaTeX package SVJour3
+% for Springer journals.          Springer Heidelberg 2014/09/25
+%
+% Copy it to a new file with a new name and use it as the basis
+% for your article. Delete % signs as needed.
+%
+% This template includes a few options for different layouts and
+% content for various journals. Please consult a previous issue of
+% your journal as needed.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% First comes an example EPS file -- just ignore it and
+% proceed on the \documentclass line
+% your LaTeX will extract the file if required
+\begin{filecontents*}{example.eps}
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 19 19 221 221
+%%CreationDate: Mon Sep 29 1997
+%%Creator: programmed by hand (JK)
+%%EndComments
+gsave
+newpath
+  20 20 moveto
+  20 220 lineto
+  220 220 lineto
+  220 20 lineto
+closepath
+2 setlinewidth
+gsave
+  .4 setgray fill
+grestore
+stroke
+grestore
+\end{filecontents*}
+%
+\RequirePackage{fix-cm}
+%
+%\documentclass{svjour3}                     % onecolumn (standard format)
+%\documentclass[smallcondensed]{svjour3}     % onecolumn (ditto)
+\documentclass[smallextended]{svjour3}       % onecolumn (second format)
+%\documentclass[twocolumn]{svjour3}          % twocolumn
+%
+\smartqed  % flush right qed marks, e.g. at end of proof
+%
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{lineno}
+\usepackage{natbib}
+\linenumbers
+%
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+%
+% insert here the call for the packages your document requires
+%\usepackage{latexsym}
+% etc.
+%
+% please place your own definitions here and don't use \def but
+% \newcommand{}{}
+%
+% Insert the name of "your journal" with
+% \journalname{myjournal}
+
+%
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+\expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+\expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+\renewenvironment{#1}%
+{\linenomath\csname old#1\endcsname}%
+{\csname oldend#1\endcsname\endlinenomath}}% 
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+\patchAmsMathEnvironmentForLineno{#1}%
+\patchAmsMathEnvironmentForLineno{#1*}}%
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+}
+
+\begin{document}
+
+\title{The Effects of Varying Surface Heat Flux and Upper Lapse Rate on Idealized Convective Boundary Layer Entrainment%\thanks{Grants or other notes
+%about the article that should go on the front page should be
+%placed here. General acknowledgments should be placed at the end of the article.}
+}
+
+%\titlerunning{Short form of title}        % if too long for running head
+
+\author{N.~A.~Chaparro \and P.~H.~Austin \and D.~G.~Steyn
+         %etc.
+}
+
+%\authorrunning{Short form of author list} % if too long for running head
+
+\institute{ \at
+              Department of Earth, Ocean, and Atmospheric Sciences, 
+              The University of British Columbia, 
+	      Room 2020, Earth Science Building,
+              2207 Main Mall,
+              Vancouver, BC, 
+              V6T 1Z4 \\
+              Tel.: +123-45-678910\\
+              Fax: +123-45-678910\\
+              \email{fauthor@example.com}           %  \\
+%             \emph{Present address:} of F. Author  %  if needed
+           %\and
+           %S. Author \at
+           %   second address
+}
+
+\date{Received: DD Month YEAR / Accepted: DD Month YEAR}
+% The correct dates will be entered by the editor
+
+
+\maketitle
+
+\begin{abstract}
+Limit the abstract to 250 words. The abstract should not be overly descriptive and should not contain any undefined abbreviations. Unexplained acronyms should not be used. Avoid citing literature, but if absolutely necessary, the reference should be given as, e.g., ``based on Gheynani and Taylor (Boundary-Layer Meteorology, 2010, Vol.137, 223-236)''.
+\keywords{Alphabetical order \and Boundary-layer meteorology \and \LaTeX \and Manuscript preparation
+\newline
+ \{Keywords should be in alphabetical order with the first letter of each keyword in upper case. No more than five keywords should be used.\}}
+% \PACS{PACS code1 \and PACS code2 \and more}
+% \subclass{MSC code1 \and MSC code2 \and more}
+\end{abstract}
+
+\section{Introduction}
+\label{intro}
+Start writing the introduction here.
+
+\section{Section Title}
+\label{sec:1}
+The remaining body of the text should be placed here, divided appropriately into sections. Line and page numbers are required and will be generated automatically by the template. Do not remove the line numbering command. Individual words in all section titles (including subsection titles) should start with upper-case letters. Avoid hanging section/subsection titles (keep the title together with section text on the same page). Sections should be referred in the text as Sect. number, unless starting a new sentence, in which case Section number should be used.
+
+\section{Next Section Title}
+Text can be further divided into subsections as demonstrated below.
+
+\subsection{Acronyms}
+All acronyms should be defined at first use, both within the abstract and in the main text. If an acronym is defined in the abstract, it should be defined again at first use in the main body of text.
+
+\subsection{Spelling}
+European spellings should be used: e.g., centre, metre, behaviour, colour, idealize, parametrization, normalized, dataset, timestep, time scale, etc. Geographical directions should be written as south, north-west, south-east, north-north-west, etc. Clauses involving two nouns should be hyphenated when used as an adjective, but not when used as a noun, e.g., boundary layer, boundary-layer depth, wind tunnel, wind-tunnel observations, 10-m wind speed, etc.
+
+\subsection{Units}
+SI units and derived SI units should be used (e.g., m, km, s, etc.) and these should be typed in Roman font, not in Italic. Units requiring an exponent should be typed with a space between the portions of the unit, and using superscripts for the power, e.g., m~s$^{-1}$, kg~m$^{-3}$, J~kg$^{-1}$~K$^{-1}$ (do not write these as m/s, kg/m$^3$, J/kg/K).
+
+\subsection{Variables and Symbols}
+All variables should be typed in an appropriate font (see Sect. 1), and written consistently throughout the main text, the figure captions, figure axes' legends, and in tables. Generally, variables are written in Italic (e.g., $p$, $T$, $\rho$, $\beta$, $\gamma$, $\theta$) and vectors are written in Bold font (e.g., \textbf{v}). Mathematical signs used in the text should have a space on either side of the sign (e.g., write $x$ = 0.1 m, $\beta$ $<$ 3, $z/L$ $\geq$ 5, etc.).
+
+When writing numbers in scientific notation, use the multiplication symbol rather than the letter x (e.g., write 4 $\times$ 10$^{-3}$ rather than 4 x 10$^{-3}$). To indicate approximate equality (within a factor of 2 - 3), use the symbol $\approx$ rather than the symbol $\sim$, which should be used to indicate on the order of (within an order of magnitude).
+
+In \textit{Boundary-Layer Meteorology}, ``Obukhov length'' is used rather than ``Monin-Obukhov length''. The surface-layer and boundary-layer `star' variables (scales) should be written in the format $T_*$, $u_*$, $q_*$, and $w_*$, i.e., with a subscript asterisk.
+
+\subsection{Equations}
+Equations should be numbered sequentially, starting with (1). The numbering should continue through the text and into the Appendices, if present. Where an equation has several parts, show these as a, b, c, etc. with each part on a separate line. Equations should be included within sentence structures if possible, with surrounding punctuation used as appropriate. An equation example:
+\begin{equation}
+\overline{(\delta{T})^2}(\textbf{r},t)=\overline{[T(\textbf{x},t)-T(\textbf{x}+\textbf{r},t)]^2}
+\end{equation}
+where $T$ is temperature, $\overline{(\delta{T})^2}$ is the temperature structure function, \textbf{x}  is a position vector, \textbf{r} is a separation vector, the overbar denotes spatial averaging, and $t$ is time.
+
+Equations should be referred to in the text as Eq. number, unless starting a new sentence, in which case Equation number should be used. Referring to equations by their number, e.g., ``as indicated by (1)'', ``the right-hand-side of (25)'', or ``defined in (3) - (5)'' is also acceptable.  
+
+\subsection{Citations}
+Citations should be presented in an appropriate format, for example: ``as found by Smith and Doe (2009)'', ``Smith (1999, 2001a, 2001b) demonstrated that...'', ``as found in previous studies (Smith and Doe 2009, Bloggs et al. 2012, Parker 2013)'' Use ``et al.'' for lists of authors exceeding two in length.
+
+\subsubsection{Further Subsections}
+If secondary subsections are required, the subsubsection command should be used to ensure correct formatting.
+
+\section{Figures}
+
+Figures with multiple panels should label each panel as a, b, c, etc. When referring to a figure in the text, use ``Fig.'' unless starting a new sentence, when ``Figure'' is appropriate. For example, you could write ``... as illustrated by the blue dashed line in Fig. \ref{fig2}.'' or ``Figure \ref{fig2} shows that ...''. Multiple-panel figures can be referred to, for example, as ``... illustrated by the blue dashed line in Figs. 2b, d'' or ``'Figure 2c shows that ...''.
+
+All figures should include a figure caption. The figures should be placed in the appropriate section in the main text. The number of figures should generally not exceed 15. All figures should be checked for legibility and consistency of the figure contents, the axes labels, and any legends. Units and variables used within figures should be in the same format and font as in the main text.
+
+\section{Tables}
+Tables should be clearly presented and easy to read. They should be numbered sequentially, starting at number 1. Variables presented in the tables should be formatted the same as in the text (e.g., Italic for variables and Bold font for vectors). All tables should include a caption beneath them, similar to figure captions.
+
+\section{References}
+\{References should be presented in alphabetical order (not in the order of their appearance in the text). They do not need to be numbered. Include the total number of pages for book references. List all authors (editors) of referred publications. Examples of formatting for specific references (conference proceedings, book, book chapter, and journal paper) are shown in the references section below. References can be entered manually using the bibitem structure, or through BibTex (recommended). BibTex users should use the spbasic bibliography style and the natbib package. Sample references of several types are shown below: a journal article \citep{Mason+1987, Garratt1994}, a book \citep{Garratt1994}, a book chapter \citep{Wyngaard2004}, and a conference proceeding \citep{Batchvarova+2003}.\}
+
+
+% For one-column wide figures use
+\begin{figure}
+\centering
+% Use the relevant command to insert your figure file.
+% For example, with the graphicx package use
+  \includegraphics{example.eps}
+% figures can also be resized by adding to the include graphics command as follows
+% \includegraphics[width=1.0\textwidth]{example.eps}
+% figure caption is below the figure
+\caption{Write an appropriate figure caption here. Discussions of the implications of the results shown in the figure should be left for the main text.}
+\label{fig1}       % Give a unique label
+\end{figure}
+%
+% For two-column wide figures use
+\begin{figure*}
+\centering
+% Use the relevant command to insert your figure file.
+% For example, with the graphicx package use
+\includegraphics[width=0.75\textwidth]{example.eps}
+% figure caption is below the figure
+\caption{Please write your figure caption here.}
+\label{fig2}       % Give a unique label
+\end{figure*}
+%
+% For tables use
+\begin{table}
+% table caption is above the table
+\caption{Please write your table caption here}
+\label{tab:1}       % Give a unique label
+% For LaTeX tables use
+\begin{tabular}{lll}
+\hline\noalign{\smallskip}
+first & second & third  \\
+\noalign{\smallskip}\hline\noalign{\smallskip}
+number & number & number \\
+number & number & number \\
+\noalign{\smallskip}\hline
+\end{tabular}
+\end{table}
+
+\begin{acknowledgements}
+Acknowledgements, if any, should follow the conclusions, and be placed above any Appendices or the references.
+\end{acknowledgements}
+
+\section*{Appendix 1 \{if needed\}}
+Appendices should follow after the acknowledgements section, and should be numbered starting at number 1. Equations contained within the appendices should be numbered sequentially following on from those in the main text.
+
+% BibTeX users please use one of
+\bibliographystyle{spbasic}      % basic style, author-year citations
+%\bibliographystyle{spmpsci}      % mathematics and physical sciences
+%\bibliographystyle{spphys}       % APS-like style for physics
+\bibliography{sample_library}   % name your BibTeX data base
+
+
+
+
+\end{document}
+% end of file template.tex
+
