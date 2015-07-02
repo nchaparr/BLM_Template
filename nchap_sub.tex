@@ -332,26 +332,62 @@ Publication & $\overline{w^{'}\theta^{'}}_{s}$& $\gamma$& Initial $\theta$ & $Ri
 In their LES study \cite{BrooksFowler2} encountered inconsistencies when determining the EZ boundaries from the average tracer profile.  Although their tracer profile was quite different to a simulated CBL $\overline{\theta}$ profile, this could serve as cautionary note.  \cite{SullMoengStev} determined local CBL height, i.e. that at an indivitual horizontal point, by locating the point of maximum $\frac{\partial \theta}{\partial z}$.  Analysis of the resulting distributions showed dependence of standard deviation and skewness on $Ri$.  The normalized standard deviation decreased with increased $Ri$ whereas skewness was almost bimodal; being negative at high $Ri$ and positive and low $Ri$.  Initially in this study, a similar method was applied and local CBL height distributions with lower $Ri$ were found to have positive skew.  Upon exhaustive inspection of local vertical $\theta$  profiles such as those in Fig. \ref{fig:rssfitshigh}, it became evident that at certain horizontal points high gradients well into the free atmosphere exceeded those within the EZ.  Locating the local ML height ($h^{l}_{0}$) using a multi-linear regression method based on that of \citep{Vieth} and described in \citep{NChap14} proved more reliable than the gradient method discussed above.  As shown in Fig. \ref{fig:rssfitshigh} a line is fit to each of the ML, EZ an FA.\\
   
 \begin{figure}[htbp]
-\begin{minipage}[b]{0.5\linewidth}
-        %
-        \subfloat[]{\label{main:a}
-                \includegraphics[scale=.31]{rss_fit_high}}\\
-        \end{minipage}             
+\thisfloatpagestyle{empty}
+\begin
+{minipage}[b]{0.5\linewidth}
+         \subfloat[]{\label{main:a}
+                \includegraphics[scale=.3]{rss_fit_high}
+}\\
+\end{minipage}
 \quad
 \begin{minipage}[b]{0.5\linewidth}
-        \subfloat[]{\label{main:b}          
-          
-                \includegraphics[scale=.31]{rss_fit_low}}
-       
-       \end{minipage}
-\caption[High local ML ]{Local vertical $\theta$ profiles with 3-line fit for the 60/2.5 run at a point where $h^{l}_{0}$ (a) is high and (b) low.}
+         \subfloat[]{\label{main:b}
+                \includegraphics[scale=.3]{rss_fit_low}
+}\\     
         
-        \label{fig:rssfitshigh}
+\end{minipage}
+\caption[High local ML]{Local vertical $\theta$ profiles with 3-line fit for the 60/2.5 run at a point where $h^{l}_{0}$ (a) is high and (b) low.}
+\label{fig:rssfitshigh}
 \end{figure}
+
+%\begin{figure}[htbp]
+%\begin{minipage}[b]{0.5\linewidth}
+ %       \subfloat[]{\label{main:a}
+   %             \includegraphics[scale=.31]{}}
+  %      \end{minipage}             
+%\quad
+%\begin{minipage}[b]{0.5\linewidth}
+%\vspace{-20mm}
+ %       \subfloat[]{\label{main:b}              
+  %        \includegraphics[scale=.31]{}}
+   %    \end{minipage}
+%\caption[]{}
+        
+        %\label{fig:rssfitshigh}
+%\end{figure}
 
 \subsection{Definitions based on scaled ensemble and horizontally averaged profiles}
 
 Here the CBL height ($h$) is defined as the location of maximum scaled vertical $\overline{\theta}$ gradient as in Figure \ref{fig:hdefs}.  The lower and upper EZ boundaries ($h_{0}$ and $h_{1}$) are then the points at which $\frac{\frac{\partial \overline{\theta}}{\partial z}}{\gamma}$ significantly exceeds zero and where it resumes $1$.  The lower boundary requires a choice of a threshold value which should be small, positive and less than $1$. \cite{FedConzMir04} and \cite{BrooksFowler2} defined the EZ in terms of the vertical $\overline{w^{'}\theta^{'}}$ profiles as in Figure \ref{fig:hdefs} but disagreed on the shape of the relationship of scaled EZ depth to $Ri$ (equation 2.1).  As well as observing this relationship using the height definitions based on the $\frac{\frac{\partial \overline{\theta}}{\partial z}}{\gamma}$ profile, definitions based on the $\frac{\overline{w^{'}\theta^{'}}}{(\overline{w^{'}\theta^{'}})_{s}}$ profile are applied for comparison with \cite{BrooksFowler2}, \cite{FedConzMir04} and \cite{GarciaMellado}.\\  
+
+\begin{figure}[htbp]
+\thisfloatpagestyle{empty}
+\begin
+{minipage}[b]{0.5\linewidth}
+         \subfloat[]{\label{main:a}
+                \includegraphics[scale=.22]{ML_Height_hist_5}
+}\\
+\end{minipage}
+\quad
+\begin{minipage}[b]{0.5\linewidth}
+         \subfloat[]{\label{main:b}
+                \includegraphics[scale=.22]{Scaled_ML_Height_hist_5}
+}\\     
+        
+\end{minipage}
+\caption[Local ML Height Distributions]{Histograms of local ML heights ($h^{l}_{0}$) for the three runs with $\gamma = 5$ Kkm$^{-1}$ are shown in (a). Darker shading corresponds to increase in $(\overline{w^{'}\theta^{'}})_{s}$, i.e. $60 - 150$ Wm$^{-1}$ per plot annotation. Counts are per height bin and bin-widths are 5m.  Probability distributions of scaled local ML height ($\frac{h^{l}_{0}}{h}$) for the three runs with $\gamma = 5$Kkm$^{-1}$ are shown in (b). The probabilities are the proportions in each scaled height bin. Both sets of plots are taken at 5 hours.}    
+\label{fig:localh}
+\end{figure}
 
 \begin{figure}[htbp]
     \centering
