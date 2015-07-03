@@ -96,6 +96,9 @@ grestore
 
 \begin{document}
 
+\graphicspath{{./figures/}}
+
+
 \title{The Effects of varying  two paramteters on idealized convective boundary layer entrainment%\thanks{Grants or other notes
 %about the article that should go on the front page should be
 %placed here. General acknowledgments should be placed at the end of the article.}
@@ -218,7 +221,7 @@ whereas \cite{Sorbjan1} showed that with proximity to the CBL top the effects of
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[scale=.32]{/newtera/tera/phil/nchaparr/python/Plotting/Dec252013/pngs/deltah_gamma.pdf}
+    \includegraphics[scale=.32]{figures/deltah_gamma.pdf}
     \caption[Alternative Potential Temperature Scale for the EZ]{Representation of the difference in $\overline{\theta}_{0}$ across the upper part of the EZ, $\delta h \gamma$ where $\delta h = h_{1} - h$. This serves as an alternative to the convective potential temperature scale $\theta_{*}$. $h_{1}$, $h$ and $h_{0}$ are the upper EZ limit, CBL height and the lower EZ limit respectively. The solid line is the average potential temperature profile and the dashed line is the initial or background potential temperature profile.}
     \label{fig:deltahgamma}   % label should change
 \end{figure}
@@ -332,21 +335,19 @@ Publication & $\overline{w^{'}\theta^{'}}_{s}$& $\gamma$& Initial $\theta$ & $Ri
 In their LES study \cite{BrooksFowler2} encountered inconsistencies when determining the EZ boundaries from the average tracer profile.  Although their tracer profile was quite different to a simulated CBL $\overline{\theta}$ profile, this could serve as cautionary note.  \cite{SullMoengStev} determined local CBL height, i.e. that at an indivitual horizontal point, by locating the point of maximum $\frac{\partial \theta}{\partial z}$.  Analysis of the resulting distributions showed dependence of standard deviation and skewness on $Ri$.  The normalized standard deviation decreased with increased $Ri$ whereas skewness was almost bimodal; being negative at high $Ri$ and positive and low $Ri$.  Initially in this study, a similar method was applied and local CBL height distributions with lower $Ri$ were found to have positive skew.  Upon exhaustive inspection of local vertical $\theta$  profiles such as those in Fig. \ref{fig:rssfitshigh}, it became evident that at certain horizontal points high gradients well into the free atmosphere exceeded those within the EZ.  Locating the local ML height ($h^{l}_{0}$) using a multi-linear regression method based on that of \citep{Vieth} and described in \citep{NChap14} proved more reliable than the gradient method discussed above.  As shown in Fig. \ref{fig:rssfitshigh} a line is fit to each of the ML, EZ an FA.\\
   
 \begin{figure}[htbp]
-\thisfloatpagestyle{empty}
-\begin
-{minipage}[b]{0.5\linewidth}
-         \subfloat[]{\label{main:a}
-                \includegraphics[scale=.3]{rss_fit_high}
-}\\
-\end{minipage}
+\begin{minipage}[b]{0.5\linewidth}
+        %
+        \subfloat[]{\label{main:a}
+                \includegraphics[scale=.31]{figures/rss_fit_high}}\\
+        \end{minipage}             
 \quad
 \begin{minipage}[b]{0.5\linewidth}
-         \subfloat[]{\label{main:b}
-                \includegraphics[scale=.3]{rss_fit_low}
-}\\     
-        
-\end{minipage}
-\caption[High local ML]{Local vertical $\theta$ profiles with 3-line fit for the 60/2.5 run at a point where $h^{l}_{0}$ (a) is high and (b) low.}
+        \subfloat[]{\label{main:b}          
+          
+                \includegraphics[scale=.31]{figures/rss_fit_low}}
+       
+       \end{minipage}
+\caption[High local ML ]{Local vertical $\theta$ profiles with 3-line fit for the 60/2.5 run at a point where $h^{l}_{0}$ (a) is high and (b) low.}
 \label{fig:rssfitshigh}
 \end{figure}
 
@@ -392,7 +393,7 @@ Here the CBL height ($h$) is defined as the location of maximum scaled vertical 
 \begin{figure}[htbp]
     \centering
     
-    \includegraphics[scale=.5]{height_defs.pdf}
+    \includegraphics[scale=.5]{figures/height_defs.pdf}
     \caption[Height Definitions]{Height definitions based on the scaled average vertical profiles. The dashed line in the far left pannel represents the initial $\overline{\theta}$ profile. $z_{f0}$, $z_{f}$ and $z_{f1}$ are the points at which the $\frac{\overline{w^{'}\theta^{'}}}{(\overline{w^{'}\theta^{'}})_{s}}$ profile first crosses zero, is minumum and resumes zero at the top of the EZ.}
     \label{fig:hdefs} 
 \end{figure}
@@ -427,13 +428,13 @@ The distribution of $h_{0}^{l}$ represents the range over which CBL height varie
 \begin
 {minipage}[b]{0.5\linewidth}
          \subfloat[]{\label{main:a}
-                \includegraphics[scale=.22]{ML_Height_hist_5}
+                \includegraphics[scale=.22]{figures/ML_Height_hist_5}
 }\\
 \end{minipage}
 \quad
 \begin{minipage}[b]{0.5\linewidth}
          \subfloat[]{\label{main:b}
-                \includegraphics[scale=.22]{Scaled_ML_Height_hist_5}
+                \includegraphics[scale=.22]{figures/Scaled_ML_Height_hist_5}
 }\\     
         
 \end{minipage}
@@ -454,7 +455,7 @@ The two-dimensional histograms of $\theta^{'}$ and $w^{'}$, at each horizontal p
 
 \begin{figure}[htbp]
 \centering
- \includegraphics[scale=.5]{marg_dist}                 
+ \includegraphics[scale=.5]{figures/marg_dist}                 
 \caption[]{Two dimensional histogram of $w^{'}$ and $\theta^{'}$ at $h$ with marginal distributions. There are 100 bins for each and bin-widths are 0.047ms$^{-1}$ and 0.0117K for $w^{'}$ and $\theta^{'}$ respectively.}
 \label{fig:margdist}
 \end{figure}
@@ -500,7 +501,7 @@ As expected, with increased $\overline{w^{'}\theta^{'}}_{s}$ the variance and ma
 
 \begin{figure}[htbp]
 \centering
- \includegraphics[scale=.76]{scaled_fluxquadhist1}                 
+ \includegraphics[scale=.76]{figures/scaled_fluxquadhist1}                 
 \caption[Two-dimensional Distributions of $\frac{w^{'}}{w_{*}}$ and $\frac{\theta^{'}}{\theta_{*}}$ for all Runs]{Two-dimensional distributions of $\frac{w^{'}}{w_{*}}$ and $\frac{\theta^{'}}{\theta_{*}}$ at $h$ for $(\overline{w^{'}\theta^{'}})_{s} = 150 \ - \ 60$Wm$^{-2}$ (top - bottom) and $\gamma = 10 \ - \  2.5$Kkm$^{-1}$ (left - right) at 5 hours. There are 100 bins for each variable with bin widths varying around 0.04 and 0.27 for $w^{'}$ and $\theta^{'}$ respectively. Thick tick marks show the narrowing of the $\frac{w^{'}}{w_{*}}$ distribution where $\frac{\theta^{'}}{\theta_{*}}$ is positive, as well as the positive shift in $\frac{\theta^{'}}{\theta_{*}}$, as $\gamma$ increases.}
 \label{fig:scaled_fluxquadhs}
 \end{figure}
@@ -511,13 +512,13 @@ Although the quadrant of overall largest magnitude is that of upward moving cool
 \begin{figure}[htbp]
 \begin{minipage}[b]{0.5\linewidth}
          \subfloat[]{\label{main:a}
-                \includegraphics[scale=.3]{downwarm_theta.pdf}}\\
+                \includegraphics[scale=.3]{figures/downwarm_theta.pdf}}\\
                      
 \end{minipage}             
 \quad
 \begin{minipage}[b]{0.5\linewidth}
          \subfloat[]{\label{main:b}          
-               \includegraphics[scale=.3]{scaled_downwarm_theta1.pdf}}\\      
+               \includegraphics[scale=.3]{figures/scaled_downwarm_theta1.pdf}}\\      
        
         \end{minipage}
         \caption[Downward moving positive potential temperature fluctuations at $h$]{(a) shows $\overline{\theta^{\prime+}}_{h}$ at points where $w^{\prime}<0$ and (b) $\overline{\theta^{\prime+}}_{h}$ where $w^{\prime}<0$ scaled by $\delta h \gamma$.  Legend key:{\color{red} \ding{116}} 150/10 \hspace{3mm}{\color{red} \ding{108}} 150/5 \hspace{2mm} {\color{black} \ding{116}} 100/10 \hspace{2mm} {\color{black} \ding{108}} 100/5 \hspace{2mm} {\color{offyellow} \ding{116}} 60/10 \hspace{2mm} {\color{offyellow} \ding{108}} 60/5 \hspace{2mm} {\color{offyellow} \ding{72}} 60/2.5}
@@ -562,19 +563,19 @@ The importance of $\gamma$ is revealed again as the curves representing Equation
 \begin{minipage}[b]{0.5\linewidth}
          
         \subfloat[]{\label{main:a}
-                \includegraphics[scale=.3]{theta_grad_profs}}\\
+                \includegraphics[scale=.3]{figures/theta_grad_profs}}\\
         \subfloat[]{\label{main:b}
-                \includegraphics[scale=.3]{scaleddeltahinvri}}\\
+                \includegraphics[scale=.3]{figures/scaleddeltahinvri}}\\
                      
 \end{minipage}             
 \quad
 \begin{minipage}[b]{0.5\linewidth}
         \subfloat[]{\label{main:c}          
          
-                \includegraphics[scale=.3]{scaled_theta_grad_profs}}\\      
+                \includegraphics[scale=.3]{figures/scaled_theta_grad_profs}}\\      
         \subfloat[]{\label{main:d}          
           
-                \includegraphics[scale=.3]{loglog_scaleddeltahinvri_4}}\\      
+                \includegraphics[scale=.3]{figures/loglog_scaleddeltahinvri_4}}\\      
        
         \end{minipage}
         \caption{The average (unscaled) vertical potential temperature gradient profiles for each run are plotted in (a) for comparison with the scaled versions ($\frac{\frac{\partial \overline{\theta}}{\partial z}}{\gamma}$) in (b).  The corresponding plots of $\frac{\Delta h}{h} \propto Ri_{\Delta} ^{b}$ are plotted in loglog coordinates in (c) and (d) to show how curves separate according to $\gamma$ when heights are based on the unscaled profile, and collapse when based on the scaled version.  Legend key:{\color{red} \ding{116}} 150/10 \hspace{3mm}{\color{red} \ding{108}} 150/5 \hspace{2mm} {\color{black} \ding{116}} 100/10 \hspace{2mm} {\color{black} \ding{108}} 100/5 \hspace{2mm} {\color{offyellow} \ding{116}} 60/10 \hspace{2mm} {\color{offyellow} \ding{108}} 60/5 \hspace{2mm} {\color{offyellow} \ding{72}} 60/2.5.}
@@ -599,19 +600,19 @@ In Fig. \ref{fig:weinvri} the axes are in log-log coordinates and all heights ar
 \begin{minipage}[b]{0.5\linewidth}
         
         \subfloat[]{\label{main:a}
-                \includegraphics[scale=.3]{scaledweinvri_delta_f_GM.png}}\\
+                \includegraphics[scale=.3]{figures/scaledweinvri_delta_f_GM.png}}\\
         \subfloat[]{\label{main:b}
-                \includegraphics[scale=.3]{scaledweinvri_delta.png}}\\
+                \includegraphics[scale=.3]{figures/scaledweinvri_delta.png}}\\
                      
 \end{minipage}             
 \quad
 \begin{minipage}[b]{0.5\linewidth}
         \subfloat[]{\label{main:c}          
           
-                \includegraphics[scale=.3]{scaledweinvri_Delta_f_GM}}\\      
+                \includegraphics[scale=.3]{figures/scaledweinvri_Delta_f_GM}}\\      
         \subfloat[]{\label{main:d}          
           
-                \includegraphics[scale=.3]{scaledweinvri_Delta}}\\      
+                \includegraphics[scale=.3]{figures/scaledweinvri_Delta}}\\      
        
         \end{minipage}
         \caption{Plots of $\frac{w_{e}}{w_{*}} \propto Ri^{a}$ using height definitions based on the scaled vertical heat flux profile with straight lines predicted by \cite{GarciaMellado} are in (a) and (b).  (c) and (d) show this relationship when heights are based on the scaled average potential temperature gradient profile. In both sets of plots $\Delta$ represents the temperature jump accross the EZ whereas $\delta$ represents that taken at the CBL top. Legend key:{\color{red} \ding{116}} 150/10 \hspace{3mm}{\color{red} \ding{108}} 150/5 \hspace{2mm} {\color{black} \ding{116}} 100/10 \hspace{2mm} {\color{black} \ding{108}} 100/5 \hspace{2mm} {\color{offyellow} \ding{116}} 60/10 \hspace{2mm} {\color{offyellow} \ding{108}} 60/5 \hspace{2mm} {\color{offyellow} \ding{72}} 60/2.5}
@@ -657,7 +658,7 @@ NSERC CREATE-AAP and NSERC Discovery grants to Douw Steyn and Phil Austin (fundi
 \bibliographystyle{spbasic}      % basic style, author-year citations
 %\bibliographystyle{spmpsci}      % mathematics and physical sciences
 %\bibliographystyle{spphys}       % APS-like style for physics
-\bibliography{sample_library}   % name your BibTeX data base
+\bibliography{nchap_sub}   % name your BibTeX data base
 
 
 
