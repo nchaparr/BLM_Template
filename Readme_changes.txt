@@ -6,3 +6,5 @@ Commented out two plots on Fig 9                   30
 
 Fig 8, redid (a).  Added more minipages            27
 so that labels show in order
+
+Fig 9 redid c and d                                28
