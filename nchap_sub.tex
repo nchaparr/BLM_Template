@@ -177,16 +177,14 @@ Bulk  models for the CBL based on average, vertical profiles of ML quantities ca
 \subsubsection{Numerical simulations}
 \label{subsec:numsim}
 
-Numerical simulation of the CBL is carried out by solving the Navier Stokes equations, simplified according to a suitable approximation, on a discrete grid.  Types of simulations can be grouped according to the scales of motion they resolve.  In direct numerical simulations (DNS) such as that used by \cite{GarciaMellado} the full range of spatial and temporal turbulence are resolved from the size of the domain down to the smallest dissipative scales i.e. the Kolmogorov micro-scales \citep{Kolmog}.  This requires a dense numerical grid and so can be computationally prohibitive.\\
-
-In an LES motion on scales smaller than twice or more of the grid spacing is filtered out and parameterized by a sub-grid scale closure model. LES has increasingly been used to better understand the CBL since \cite{Deardorff72} devised it for this purpose.  \cite{SullMoengStev}, \cite{FedConzMir04}, \cite{EbSchu} and \cite{BrooksFowler2} used it to study the structure and scaling behaviour of the EZ.\\
+Numerical simulation of the CBL can be categorized according to the scales of motion they resolve.  In direct numerical simulations (DNS) such as that used by \cite{GarciaMellado} the full range of spatial and temporal turbulence are resolved from the size of the domain down to the smallest dissipative scales i.e. the Kolmogorov micro-scales \citep{Kolmog}.  This requires a dense numerical grid and so can be computationally prohibitive. In an LES motion on scales smaller than twice or more of the grid spacing is filtered out and parameterized by a sub-grid scale closure model. LES has increasingly been used to better understand the CBL since \cite{Deardorff72} devised it for this purpose.  \cite{SullMoengStev}, \cite{FedConzMir04}, \cite{EbSchu} and \cite{BrooksFowler2} used it to study the structure and scaling behaviour of the EZ.\\
 
 \subsection{CBL entrainment scales and scaling relations (parametrizations)}
 \label{subsec:scales}
 \subsubsection{Length scale ($h$)}
 \label{subsubsec:}
 
-\cite{Deardorff72} demonstrated that dominant turbulent structures in penetrative convection scale with CBL height, which he referred to as the inversion height but measured as the height of minimum vertical heat flux.  Since then, the distinction between the two has been clarified \citep{SullMoengStev} and here $h$ refers strictly to the height of maximum average potential temperature gradient. There are alternatives. For example turbulence based definitions, such as the velocity variance and the distance over which velocity is correlated with itself, represent the current turbulent dynamics rather than the recent turbulence history as does $h$ \citep{Traum11}.\\
+\cite{Deardorff72} demonstrated that dominant turbulent structures in penetrative convection scale with CBL height, which he referred to as the inversion height but measured as the height of minimum vertical heat flux.  Since then, the distinction between the two has been clarified \citep{SullMoengStev} and here $h$ refers strictly to the height of maximum average potential temperature gradient.\\
 
 \subsubsection{Deardorff (convective) velocity scale ($w_{*}$)}
 \label{subsubsec:convel}
@@ -198,7 +196,7 @@ w_{*} = \left( \frac{gh}{\overline{\theta}}(\overline{w^{'}\theta^{'}})_{s} \rig
 \end{equation}
 
 
- effectively scaled the local vertical turbulent velocity fluctuations ($w^{'}$) in the CBL.  \cite{Sorbjan1} supports this, even at the CBL top.  The CBL entrainment rate ($w_{e} = \frac{dh}{dt}$, neglecting large scale subsidence) depends on the magnitude of $w^{'}$ which is driven by $(\overline{w^{'}\theta^{'}})_{s}$. Stability aloft suppresses $\frac{dh}{dt}$ so the influence of $\gamma$ is indirectly accounted for via $h$ in $w_{*}$.\\
+ effectively scaled the local vertical turbulent velocity fluctuations ($w^{'}$) in the CBL.  CBL entrainment depends on the magnitude of $w^{'}$ which in turn depends on surface heat flux. \\
 
 \subsubsection{Temperature scales ($\theta_{*}$ and $\delta h \gamma$)}
 \label{subsubsec:tempscales}
