@@ -24,3 +24,5 @@ Moved some from scetion 3 to sec 2
 removed section about EZ based on 
 Flux definitions. stuck summary in
 next sub section
+
+reordered labels on Fig 7
