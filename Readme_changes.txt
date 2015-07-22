@@ -28,3 +28,5 @@ next sub section
 reordered labels on Fig 7
 
 trimmed abstract
+
+Shortened bulk model section
