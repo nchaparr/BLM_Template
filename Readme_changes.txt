@@ -12,3 +12,5 @@ Fig 9 redid c and d                                28
 Fig 9 redid b                                      29 
 
 Fig 4                                              18
+
+Deleted marg dist plot and tables                  20  
