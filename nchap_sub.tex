@@ -418,28 +418,8 @@ Here the CBL height ($h$) is defined as the location of maximum scaled vertical 
 \subsubsection{Local CBL heights ($h_{0}^{l}$)}
 \label{subsubsec:loccblh}
 
-The distribution of $h_{0}^{l}$ represents the range over which CBL height varies in space so relates to the depth of the entrainment zone (EZ).  In Fig. \ref{fig:localh} (a) it widens with increasing $(\overline{w^{'}\theta^{'}})_{s}$ and is seen to narrow with increasing $\gamma$ in analysis not shown here.  When scaled by $h$, the local ML height distribution narrows with increased $\gamma$.  The upper boundary seems to be constant at about 1.1($\times h$) , whereas the lower boundary increases.  When $h_{0}^{l}$s are lower and their distribution is narrower, the scaled versions have relatively larger spacing between bins and so higher numbers in each bin. In Figure \ref{fig:localh} (b), at higher $(\overline{w^{'}\theta^{'}})_{s}$ there are fewer $\frac{h_{0}^{l}}{h}$ values with higher probabilities, but the width of the distributions is more or less constant regardless of $(w^{'}\theta^{'})_{s}$.\\
+The distribution of $h_{0}^{l}$ represents the range over which CBL height varies in space so relates to the depth of the entrainment zone (EZ).  It widens with increasing $(\overline{w^{'}\theta^{'}})_{s}$ and narrows with increasing $\gamma$ \citep{NChap14}.  When scaled by $h$ in Fig. \ref{fig:localhdist}, the local ML height distribution narrows with increased $\gamma$.  The upper boundary seems to be constant at about 1.1($\times h$) , whereas the lower boundary increases.  When $h_{0}^{l}$s are lower and their distribution is narrower, the scaled versions have relatively larger spacing between bins and so higher numbers in each bin. At higher $(\overline{w^{'}\theta^{'}})_{s}$ there are fewer $\frac{h_{0}^{l}}{h}$ values with higher probabilities, but the width of the distributions seems more or less constant regardless of $(w^{'}\theta^{'})_{s}$.\\
 
-
-%\begin{figure}[htbp]
-%\thisfloatpagestyle{empty}
-%\begin
-%{minipage}[b]{0.5\linewidth}
-%         \subfloat[]{\label{main:a}
-%                \includegraphics[scale=.22]{figures/ML_Height_hist_5}
-%}\\
-%\end{minipage}
-%\quad
-%\begin{minipage}[b]{0.5\linewidth}
-%         \subfloat[]{\label{main:b}
-%                \includegraphics[scale=.22]{figures/Scaled_ML_Height_hist_5}
-%}\\     
-        
-%\end{minipage}
-%\caption
-%\label{fig:localh}
-
-%\end{figure}
 
 \begin{figure}[htbp]
 %\begin{minipage}[b]{0.5\linewidth}
@@ -463,13 +443,13 @@ The distribution of $h_{0}^{l}$ represents the range over which CBL height varie
 
         \caption[Local Scaled ML Height Distributions]{Probability distributions of scaled local ML heights ($\frac{h^{l}_{0}}{h}$) for $\gamma = 2.5$ Kkm$^{-1}$ (a), $\gamma = 5$ Kkm$^{-1}$ (b) and $\gamma = 10$ Kkm$^{-1}$ (c). Darker shading corresponds to increase in $(\overline{w^{'}\theta^{'}})_{s}$, i.e. $60 - 150$ Wm$^{-1}$ per plot annotation.  The probabilities are the proportions in each scaled height bin. All plots are of output at 5 simulated hours.}
     
-        \label{fig:scaleddeltahinvri}
+        \label{fig:localhdist}
 \end{figure}
 
 The lowest $\frac{h^{l}_{0}}{h}$ decrease with decreased stability ($Ri$) causing increased negative skew. This, combined with a widening of the distribution agrees, with the findings of \cite{SullMoengStev} and supports the results based on the average profiles to be discussed later.  The approximate scaled EZ based on the $\frac{h^{l}_{0}}{h}$ distributions is about 0.2 - 0.4 whereas that based on distributions of local maximum tracer gradients by  \cite{BrooksFowler2} was smaller (0.05 - 0.2).  However, the local maximum gradient of the tracer profile would likely be within the EZ at points outside an actively impinging plume and so higher than $h^{l}_{0}$ defined here and the distributions could be quite different. \\  
 
-\subsubsection{Local $w$ and $\theta$ fluctuations}
-\label{subsubsec:locfluc}
+\subsubsection{Downward moving warm air at $h$}
+\label{subsubsec:downwarm}
 
 \cite{SullMoengStev} decomposed $w^{'}\theta^{'}$ into four quadrants and used this combined with local flow visualizations to show how CBL thermals impinge and draw down warm air from above. \cite{MahrtPaum} used 2 dimensional contour plots of local $w^{'}$ and $\theta^{'}$ measurements to analyze their joint distributions.  \cite{Sorbjan1} concluded that in the EZ, $\theta^{'}$ is strongly influenced by $\gamma$  whereas $w^{'}$ is practically independent thereof.  Influenced by these three studies, 2 dimensional histograms at $h$ and so within the EZ, are used here to see how distributions of local $w^{'}$ and $\theta^{'}$ are effected by changes in $\gamma$ and $(\overline{w^{'}\theta^{'}})_{s}$ .  The effects of $\gamma$ are magnified by applying the convective scales, $\theta_{*}$ and $w_{*}$ and the entrained air at $h$ is focused on specifically by looking at the downward moving warm potential temperature fluctuations.\\    
 
@@ -480,12 +460,6 @@ Distributions of both $w^{'}$ and $\theta^{'}$ widen with increasing $(\overline
 As expected, with increased $\overline{w^{'}\theta^{'}}_{s}$ the variance and magnitude of the vertical velocity fluctuations within and at the limits of the EZ increase.  Greater turbulent velocity causes a higher CBL and deeper EZ so the magnitude of the potential temperature fluctuations ($\theta^{'}$) and the width of their distribution increases. All of this agrees with the findings of \citeauthor{Sorbjan1} (\citeyear{Sorbjan1}), but the portion of the scaled $w^{'}$ ($\frac{w^{'}}{w_{*}}$) distribution where scaled $\theta^{'}$ ($\frac{\theta^{'}}{\theta_{*}}$) is positive, in Fig. \ref{fig:scaled_fluxquadhs}, appears to narrow as $\gamma$ increases. This is at odds with his assertion that $w^{'}$ is independent of this parameter but the effectiveness of $w_{*}$ as a scale for the downward moving warm fluctuations supports it. The latter is seen clearly in analysis not shown here.\\
 
 
-\begin{figure}[htbp]
-\centering
- \includegraphics[scale=.76]{figures/scaled_fluxquadhist1}                 
-\caption[Two-dimensional Distributions of $\frac{w^{'}}{w_{*}}$ and $\frac{\theta^{'}}{\theta_{*}}$ for all Runs]{Two-dimensional distributions of $\frac{w^{'}}{w_{*}}$ and $\frac{\theta^{'}}{\theta_{*}}$ at $h$ for $(\overline{w^{'}\theta^{'}})_{s} = 150 \ - \ 60$Wm$^{-2}$ (top - bottom) and $\gamma = 10 \ - \  2.5$Kkm$^{-1}$ (left - right) at 5 hours. There are 100 bins for each variable with bin widths varying around 0.04 and 0.27 for $w^{'}$ and $\theta^{'}$ respectively. Thick tick marks show the narrowing of the $\frac{w^{'}}{w_{*}}$ distribution where $\frac{\theta^{'}}{\theta_{*}}$ is positive, as well as the positive shift in $\frac{\theta^{'}}{\theta_{*}}$, as $\gamma$ increases.}
-\label{fig:scaled_fluxquadhs}
-\end{figure}
 
 Although the quadrant of overall largest magnitude is that of upward moving cool air ($w^{'+}\theta^{'-}$), in the EZ the net heat flux is downward moving warm ($w^{'-}\theta^{'+}$) air as the other three quadrants approximately cancel.  This is in line with the findings of \cite{SullMoengStev}.  The average downward moving warm quadrant ($\overline{w^{'-}\theta^{'+}}$) at $h$ represents the pockets of trapped or engulfed warm air that become mixed into the growing CBL.  So its magnitude can be taken as a measure of entrainment.  This increases in magnitude, with time as well as with increasing $(\overline{w^{'}\theta^{'}})_{s}$.  Partitioning $(\overline{w^{'-}\theta^{'+}})_{h}$ into its velocity and temperature components reveals complexity.  The velocity component $\overline{w^{'-}}_{h}$  where $ \overline{\theta^{'}}_{h}>0$, is effectively scaled by $w_{*}$.  The curves representing $\overline{\theta^{'+}}_{h}$ where $\overline{w^{'}}_{h}<0$ vs time do not seem to collapse when scaled by $\theta_{*}$.  Figure \ref{fig:downwarm_theta} (a) shows this component is scaled effectively by the potential temperature scale introduced in Section \ref{subsubsec:tempscales}, $\delta h \gamma$.  Thus, $\gamma$ influences entrained warm air at $h$ are more significantly than $(\overline{w^{'}\theta^{'}})_{s}$.\\ 
 \\   

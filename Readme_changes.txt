@@ -14,3 +14,5 @@ Fig 9 redid b                                      29
 Fig 4                                              18
 
 Deleted marg dist plot and tables                  20  
+
+Delted scaled flux quadrant plot                   22
