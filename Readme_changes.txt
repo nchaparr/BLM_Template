@@ -20,3 +20,7 @@ Delted scaled flux quadrant plot                   22
 Deleted a bunch of text from section 3             20,21
 
 Moved some from scetion 3 to sec 2                 
+
+removed section about EZ based on 
+Flux definitions. stuck summary in
+next sub section
