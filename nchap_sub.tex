@@ -99,7 +99,7 @@ grestore
 \graphicspath{{./figures/}}
 
 
-\title{The Effects of varying  two paramteters on idealized convective boundary layer entrainment%\thanks{Grants or other notes
+\title{The effects of inversion strenght  on idealized convective boundary layer entrainment%\thanks{Grants or other notes
 %about the article that should go on the front page should be
 %placed here. General acknowledgments should be placed at the end of the article.}
 }
@@ -135,14 +135,13 @@ grestore
 \maketitle
 
 \begin{abstract}
-Dependence of entrainment rate and entrainment zone depth on the convective Richardson number has been established but there is still unresolved discussion about the form of these relationships. Details regarding the structure of the entrainment zone continue to emerge. The variety of convective boundary layer height and entrainment zone depth definitions adds further complexity. The study described in here aims to join this ongoing discussion.\\
 
-A dry, shear-free, idealized convective boundary layer in the absence of large scale winds is modeled using a large eddy simulation.  A ten member ensemble enables calculation of true ensemble averages and potential temperature fluctuations as well as providing smooth average profiles.  A range convective Richardson numbers is acheived by varying surface vertical heat flux and stable upper potential temperature lapse rate.  The gradient method for determining local convective boundary layer height based on the potential temperature profile, at a single horizontal point, was found to be unreliable so a multi-linear regression method is used instead.  Average height and entrainment zone depth are defined based on the ensemble and horizontally averaged potential temperature profile.\\  
+Large eddy simulations are used to model  dry, shear-free, idealized convective boundary layer in the absence of large scale winds.  Ten member ensembles are calculated for a range of convective  Richardson numbers yielding the local height of the mixed layer, turbulent fluxes  and the average mixed layer height and entrainment zone depth. \\
 
-Distributions of local convective boundary layer heights narrow with increased upper stability.  Relationships of average entrainment rate and entrainment zone depth to convective Richardson number agree with theory and the results of other studies.  In particular, the results of a recent direct numerical simulation study were reproduced.  Both relationships show a change in exponent which could be attributed to a change in entrainment mechanism as conective Richardson number increases.  The upper potential temperature lapse rate emerges as the dominant parameter, influencing scaled entrainment zone depth and potential temperature variance, in the entrainment zone and upper convective boundary layer.   
+The variance of the local convective boundary layer height is found to decrease with increased stability at the boundary layer top.  Relationships of average entrainment rate and entrainment zone depth to convective Richardson number (Ri) agree with theory and the results of other studies.  Scaling of both the average mixed layer potential temperature profile and the depth of the entrainment zone is shown to depend on stability at the top of the boundary layer.   The  powerlaw relationship of both the entrainment rate and the entrainment zone depth to the convective Richardson number undergoes  a change in exponent with increasing Ri which is attributed to a change in entrainment mechanism with increasing stability.
 
-\keywords{Convective boundary layer \and Entrainment \and Large eddy simulation \and Potential Temperature Profile}
 \end{abstract}
+\keywords{Convective boundary layer \and Entrainment \and Large eddy simulation \and Potential Temperature Profile}
 
 \section{Introduction}
 \label{intro}
@@ -158,42 +157,27 @@ CBL entrainment is initiated when pockets of warm stable air from above are trap
 
 \begin{itemize}
 
-\item{Non turbulent fluid can be engulfed between or in the overturning of thermal plumes. This kind of event has been supported by the visualizations in \cite{SullMoengStev}'s large eddy simulation (LES) study as well as in \cite{Traum11}'s observations. In both it appeared to occur under a weak inversion or upper lapse rate ($\gamma$)}
+\item{Non turbulent fluid can be engulfed between or in the overturning of thermal plumes. Engulfment events have been seen in both   large eddy simulations (LES) and observations for weak inversion strengths \citep{SullMoengStev,Traum11}.} 
 
 \item{
-Impinging thermal plumes distort the inversion interface dragging wisps of warm stable air down at their edges or during recoil under a strong inversion or lapse rate. This type of event is supported by the findings  of both \cite{SullMoengStev} and \cite{Traum11}.}
+Under stronger inversions, impinging thermal plumes distort the inversion interface dragging wisps of warm stable air down at their edges or during recoil under a strong inversion or lapse rate. This type of event is supported by the findings  of both \cite{SullMoengStev} and \cite{Traum11}.}
 
 \end{itemize}
 
-The mixed layer (ML) is fully turbulent.  Above it the EZ is characterized by stable air with intermittent turbulence due to high-reaching thermals. \cite{GarciaMellado} demonstrated that the EZ is subdivided in terms of length and buoyancy scales.  The lower region is comprised of mostly turbulent air with pockets of stable warmer air that are quickly mixed, and so scales with the convective scales. Whereas the upper region is mostly stable apart from the impinging thermals so scaling here is more influenced by the lapse rate ($\gamma$).  In the EZ the vertical heat flux, $\overline{w^{'}\theta^{'}}$, has opposite sign relative to that in the ML.  The fast updraughts are now relatively cool $\overline{w^{'+}\theta^{'-}}$.  In their analysis of the four $\overline{w^{'}\theta^{'}}$ quadrants \cite{SullMoengStev} concluded that the net dynamic in this region is downward motion of warm air ($\overline{w^{'-}\theta^{'+}}$) from the FA since the other three quadrants effectively cancel.\\
+More recently, direct numerical simulations have  demonstrated that the EZ is subdivided in terms of length and buoyancy scales \citep{GarciaMellado}.  The lower region is comprised of mostly turbulent air with pockets of stable warmer air that are quickly mixed, and so scales with the convective scales. Whereas the upper region is mostly stable apart from the impinging thermals so scaling here is more influenced by the lapse rate ($\gamma$).  In the EZ the vertical heat flux, $\overline{w^{'}\theta^{'}}$, has opposite sign relative to that in the ML.  The fast updraughts are now relatively cool $\overline{w^{'+}\theta^{'-}}$.  In their analysis of the four $\overline{w^{'}\theta^{'}}$ quadrants \cite{SullMoengStev} concluded that the net dynamic in this region is downward motion of warm air ($\overline{w^{'-}\theta^{'+}}$) from the FA since the other three quadrants effectively cancel.\\
 
-\subsection{Modeling CBL entrainment}
-
-\subsubsection{Bulk models}
-\label{subsubsec:bulkmod}
-
-Bulk  models for the CBL based on vertical profiles of potential temperature can and vertical heat flux can be subdivided into: (i) zero-order jump models with an ML of uniform potential temperature topped by an infinitessimly thin EZ at which is a discrete jump ($\delta \theta$) and (ii) first-(and higher) order jump bulk models which account for a finite EZ accross which potential temperature changes from the ML to FA values ($\Delta \theta$).  Increased order corresponds to increasing complexity in the shape of the  $\overline{\theta}$ and $\overline{w^{'}\theta^{'}}$ profiles at the top of the ML. \citep{Tennekes73, Betts74, BatchGryn, Stull73, Deardorff79, FedConzMir04}\\ 
-
-\subsubsection{Numerical simulations}
-\label{subsec:numsim}
-
-Numerical simulations of the CBL can be grouped according to the scales of motion they resolve.  In direct numerical simulations (DNS) such as that used by \cite{GarciaMellado} the full range of spatial and temporal turbulence are resolved from the size of the domain down to the smallest dissipative scales i.e. the Kolmogorov micro-scales \citep{Kolmog}.  This requires a dense numerical grid and so can be computationally prohibitive.\\
-
-In an LES motion on scales smaller than twice or more of the grid spacing is filtered out and parameterized by a sub-grid scale closure model. LES has increasingly been used to better understand the CBL since \cite{Deardorff72} devised it for this purpose.  \cite{SullMoengStev}, \cite{FedConzMir04}, \cite{EbSchu} and \cite{BrooksFowler2} used it to study the structure and scaling behaviour of the EZ.\\
-
-\subsection{CBL entrainment scales and scaling relationships (parametrizations)}
+\subsection{CBL entrainment scales and scaling relationships for parametrizations}
 \label{subsec:scales}
 \subsubsection{Length scale ($h$)}
 \label{subsubsec:}
 
-\cite{Deardorff72} demonstrated that dominant turbulent structures in penetrative convection scale with CBL height, which he referred to as the inversion height but measured as the height of minimum vertical heat flux ($z_{f}$ as in Fig. \ref{fig:hdefs}).  Since then, the distinction between the two has been clarified \citep{SullMoengStev} and here $h$ refers strictly to the height of maximum average potential temperature gradient as shown in Fig. \ref{fig:hdefs}.\\
-%/newtera/tera/phil/nchaparr/tera2_cp/nchaparr/Dec252013/python
-%plot_defs.py produces this on branch: height_defs
+\cite{Deardorff72} demonstrated that dominant turbulent structures in penetrative convection scale with CBL height, which he referred to as the inversion height but measured as the height of minimum vertical heat flux ($z_{f}$ as in Fig. \ref{fig:hdefs}).  Since then, the distinction between the two has been clarified \citep{SullMoengStev} and here $h$ refers strictly to the height of maximum average potential temperature gradient. Figure \ref{fig:hdefs} shows ...\\
+
 \begin{figure}[htbp]
     \centering
     
     \includegraphics[scale=.5]{figures/height_defs.pdf}
-    \caption[Height Definitions]{Height definitions based on the scaled average vertical profiles. The dashed line in the far left pannel represents the initial average potential temperature profile and the solid line is that at a later time. In the middle pannel $h$ is the location of the maximum scaled average potential temperature gradient, $h_{0}$ is the point at which it increases significantly from zero and $h_{1}$ is where it resumes 1.  $z_{f0}$, $z_{f}$ and $z_{f1}$ are the points at which the scaled vertical heat flux profile first crosses zero, is minumum and resumes zero. The EZ is shaded.}
+    \caption[label a, b c Height Definitions]{Height definitions based on the scaled average vertical profiles. The dashed line in the far left pannel represents the initial average potential temperature profile and the solid line is that at a later time. In the middle pannel $h$ is the location of the maximum scaled average potential temperature gradient, $h_{0}$ is the point at which it increases significantly from zero and $h_{1}$ is where it resumes 1.  $z_{f0}$, $z_{f}$ and $z_{f1}$ are the points at which the scaled vertical heat flux profile first crosses zero, is minumum and resumes zero. The EZ is shaded.}
     \label{fig:hdefs} 
 \end{figure}
  
@@ -261,14 +245,15 @@ The relationship between scaled entrainment rate and the buoyancy Richardson num
 \begin{equation}\label{eq:ervsri}
 \frac{w_{e}}{w_{*}} \propto Ri^{a}
 \end{equation}
+can be derived by integration of the conservation of enthalpy or turbulent kinetic energy equations over the growing CBL \citep{Tennekes73, Deardorff79, FedConzMir04}. It has been verified in numerous laboratory and numerical studies \citep{DearWill80, SullMoengStev, FedConzMir04, BrooksFowler2}, but there is still some unresolved discussion as the the exact value of a.  Simulations and observations give  values of the scaling exponent $a$ between $-\frac{3}{2}$ and $-1$ \citep{Traum11}.  \cite{Turner86} suggested that the former occurs at high stability when buoyant recoil of impinging thermals becomes more important than their convective overturning.  Adding further complexity to this discussion, \cite{FedConzMir04} arrived a similar power law relationship ($a = -1.7$) through defining the $\theta$ jump across the EZ ($\Delta \theta$) rather than at $h$ ($\delta \theta$).\\
 
-is derived according to the zero-order jump bulk model through thermodynamic arguments, or by integration of the conservation of enthalpy or turbulent kinetic energy equations over the growing CBL \citep{Tennekes73, Deardorff79, FedConzMir04}. It has been verified in numerous laboratory and numerical studies \citep{DearWill80, SullMoengStev, FedConzMir04, BrooksFowler2}, but there is still some unresolved discussion as the the exact value of a.  Two possible values are $-\frac{3}{2}$ and $-1$ \citep{Traum11}.  \cite{Turner86} suggested that the former occurs at high stability when buoyant recoil of impinging thermals becomes more important than their convective overturning.  Adding further complexity to this discussion, \cite{FedConzMir04} arrived a similar power law relationship ($a = -1.7$) through defining the $\theta$ jump across the EZ ($\Delta \theta$) rather than at $h$ ($\delta \theta$).\\
+Below we use a large eddy simulation to ...
 
 \section{Tools and approach}
 
 \subsection{LES set up}
 
-The LES used in this study, System for Atmospheric Modelling (SAM), is described in \cite{KhairRand}.
+The LES used in this study, System for Atmospheric Modelling (SAM)is an three-dimensional, anelastic model using dry static energy for its thermodynamic variable.  A Smagorinsky sub-grid scale closure was used for all simulations \citep{KhairRand}.
 
 \subsubsection{Domain and grid sizes}
 The dry shear free CBL and EZ was modelled using SAM.  An ensemble of 10 cases was run to obtain true ensemble averages and turbulent potential temperature fluctuations ($\theta^{'}$). Each case had a domain of area 3.2 x 4.8 km$^{2}$.  Grid numbers $n_{x}$, $n_{y}$ were chosen based on the optimal distribution across processor nodes. The vertical grid ($n_{z}=312$) was of higher resolution around the entrainment zone ($\Delta z = 5$m), lower below ($\Delta z = 25$m) and stretched above it ($\Delta z = 10 \ to \ 100 $m). This was guided by \cite{SullPat}'s LES resolution study of the CBL that showed how grid size effects the average profiles, as well as the extent of the inertial turbulence scale sub-range.\\
@@ -296,7 +281,7 @@ The runs were initialized with a constant $(\overline{w^{'}\theta^{'}})_{s}$ act
 
 \cite{SullPat} found that the shapes of the average potential temperature ($\overline{\theta}$) and heat flux ($\overline{w^{'}\theta^{'}}$) profiles, as well as the measured CBL height vary depending on grid size.  The resolution at which convergence began is listed in Table \ref{table:gridcomp}.  Lower resolution resulted in a higher CBL and relatively larger EZ based on the $\overline{\theta}$ and $\overline{w^{'}\theta^{'}}$ profiles.  Overall they concluded that vertical resolution was critical.  This compliments the conclusion \cite{BrooksFowler2} reached when discussing their resolution test.  That is, to capture the steep vertical gradients in the EZ requires high vertical resolution. \\
 
-Here, fast fourrier transform (FFT) energy spectra of the turbulent velocities at the top of the ML show a substantial resolved inertial subrange giving confidence in the choice of horizontal grid size used. In the EZ where turbulence is intermittent, the dominant energy containing structures are smaller, and decay to the smallest resolved turbulent structures is steeper. Two dimensional horizontal slices of potential temperature and turbulent vertical velocity perturbations at $h_{0}$, $h$ and $h_{1}$ show several coherent impinging thermals at any given time after 2 hours, indicating that realistic turbulence was being simulated \ref{NChap14}.\\
+Fast Fourier transform (FFT) energy spectra of the turbulent velocities at the top of the ML (not shown) show a substantial resolved inertial subrange giving confidence in the choice of horizontal grid size used. In the EZ where turbulence is intermittent, the dominant energy containing structures are smaller, and decay to the smallest resolved turbulent structures is steeper. Two dimensional horizontal slices of potential temperature and turbulent vertical velocity perturbations at $h_{0}$, $h$ and $h_{1}$ show several coherent impinging thermals at any given time after 2 hours, indicating that realistic turbulence was being simulated \ref{NChap14}.\\
 
 \begin{table}[htbp]
 \caption[Comparison of Grid-Sizes used in similar Studies]{Grid spacing around the EZ used in comparable LES studies. Those used for resolution tests are not listed here.  For \cite{SullPat}'s resolution study the grid sizes, at which profiles within the EZ and CBL height evolution began to converge, are listed.}
@@ -314,6 +299,8 @@ Publication & $\Delta x$, $\Delta y$, $\Delta z$ & Horizontal \\
 \label{table:gridcomp}   
 %\end{center}    
 \end{table}
+
+Move?
 
 The principal parameter describing the balance of forces in dry, idealized CBL entrainment is the Richardson number ($Ri$) and its magnitude depends on the way in which the $\theta$ jump is defined.  Varying the $\theta$ jump definition causes identical conditions to be described by different $Ri$ values.  In this study the dependence of $Ri$ on variation in $\gamma$ was evident.  \cite{BrooksFowler2} and \cite{SullMoengStev} imposed a $\theta$ jump of varying strength topped by a constant $\gamma$.  Whereas \cite{FedConzMir04} initialized with a layer of uniform $\theta$.  They varied $\gamma$ and kept $\overline{w^{'}\theta^{'}}_{s}$ constant for each run.  Their initial conditions, definitions of the $\theta$ jump and $Ri$ range are directly comparable to those of this study.  \cite{BrooksFowler2} and \cite{SullMoengStev} defined CBL height, the EZ and $\theta$ jump as averages of local values determined based on tracer profiles.  So the resulting $Ri$ values are quite different.    
 
@@ -375,9 +362,9 @@ Here the CBL height ($h$) is defined as the location of maximum scaled vertical 
 \end{table}
 
 \section{Results}
-\subsection{EZ structure}
+\subsection{Entrainment zone structure}
 
-\subsubsection{Local CBL heights ($h_{0}^{l}$)}
+\subsubsection{Variation of local convective boundary layer height ($h_{0}^{l}$)}
 \label{subsubsec:loccblh}
 
 The distribution of $h_{0}^{l}$ represents the range over which CBL height varies in space so relates to the depth of the entrainment zone (EZ).  It widens with increasing $(\overline{w^{'}\theta^{'}})_{s}$ and narrows with increasing $\gamma$ \citep{NChap14}.  When scaled by $h$ in Fig. \ref{fig:localhdist}, the local ML height distribution narrows with increased $\gamma$.  The upper boundary seems to be constant at about 1.1($\times h$) , whereas the lower boundary increases.  When $h_{0}^{l}$s are lower and their distribution is narrower, the scaled versions have relatively larger spacing between bins and so higher numbers in each bin. At higher $(\overline{w^{'}\theta^{'}})_{s}$ there are fewer $\frac{h_{0}^{l}}{h}$ values with higher probabilities, but the width of the distributions seems more or less constant regardless of $(w^{'}\theta^{'})_{s}$.\\
@@ -413,7 +400,7 @@ The lowest $\frac{h^{l}_{0}}{h}$ decrease with decreased stability ($Ri$) causin
 \subsubsection{Downward moving warm air at $h$}
 \label{subsubsec:downwarm}
 
-\cite{SullMoengStev} separated the vertical heat flux in the EZ into four quadrants: upward moving warm, downward moving warm, upward moving cool and downward moving cool. They concluded that the net dynamic in the EZ was that of downward moving warm air. Here, the average downward moving warm quadrant ($\overline{w^{'-}\theta^{'+}}$) at $h$ represents the pockets of trapped or engulfed warm air that become mixed into the growing CBL.  So its magnitude can be taken as a measure of entrainment.  This increases in magnitude, with time as well as with increasing $(\overline{w^{'}\theta^{'}})_{s}$ \citep{NChap14}.  Partitioning $(\overline{w^{'-}\theta^{'+}})_{h}$ into its velocity and temperature components reveals complexity.  The velocity component, $\overline{w^{'-}}_{h}$  where $ \overline{\theta^{'}}_{h}>0$, is effectively scaled by $w_{*}$.  The curves representing the temperature component, $\overline{\theta^{'+}}_{h}$ where $\overline{w^{'}}_{h}<0$, vs time do not seem to collapse when scaled by $\theta_{*}$ \citep{NChap14}.  Fig. \ref{fig:downwarm_theta} (a) shows this component is scaled more effectively by the potential temperature scale introduced in Section \ref{subsubsec:tempscales}, $\delta h \gamma$.  Thus, $\gamma$ influences entrained warm air at $h$ more significantly than $(\overline{w^{'}\theta^{'}})_{s}$.\\ 
+\cite{SullMoengStev} separated the vertical heat flux in the EZ into four quadrants: upward moving warm, downward moving warm, upward moving cool and downward moving cool. They concluded that the net transport in the EZ was determined by downward moving warm air. The LES simulations show that the average downward moving warm quadrant ($\overline{w^{'-}\theta^{'+}}$) at $h$ represents the pockets of trapped or engulfed warm air that become mixed into the growing CBL.  So its magnitude can be taken as a measure of entrainment.  This increases in magnitude, with time as well as with increasing $(\overline{w^{'}\theta^{'}})_{s}$ \citep{NChap14}.  Partitioning $(\overline{w^{'-}\theta^{'+}})_{h}$ into its velocity and temperature components reveals complexity.  The velocity component, $\overline{w^{'-}}_{h}$  where $ \overline{\theta^{'}}_{h}>0$, is effectively scaled by $w_{*}$.  The curves representing the temperature component, $\overline{\theta^{'+}}_{h}$ where $\overline{w^{'}}_{h}<0$, vs time do not seem to collapse when scaled by $\theta_{*}$ \citep{NChap14}.  Fig. \ref{fig:downwarm_theta} (a) shows this component is scaled more effectively by the potential temperature scale introduced in Section \ref{subsubsec:tempscales}, $\delta h \gamma$.  Thus, $\gamma$ influences entrained warm air at $h$ more significantly than $(\overline{w^{'}\theta^{'}})_{s}$.\\ 
 \\   
 %plot_downwarm_h.py on branch downwarm
 \begin{figure}[htbp]
@@ -440,6 +427,8 @@ The lowest $\frac{h^{l}_{0}}{h}$ decrease with decreased stability ($Ri$) causin
 %\subsubsection{Height definitions based on scaled $\overline{w^{'}\theta^{'}}$}
 
 \subsubsection{Heights based on scaled $\overline{\theta}$ gradient profile}
+
+Figure 6 shows ...
 
 Initially, CBL height and EZ boundaries are defined based on the (unscaled) $\frac{\partial \overline{\theta}}{\partial z}$ profile. A threshold value for the lower EZ boundary ($h_{0}$) was chosen here, such that it was positive, small (i.e. an order of magnitude less than $\gamma$) and the same for all runs.  For the sake of rigor, plots of Eq. \ref{eq:dhvsri} are produced based on two additional threshold values yielding analogous results \citep{NChap14}.  In all three cases curves group according to $\gamma$ as shown in Fig. \ref{fig:scaleddeltahinvri} (c).\\
 
@@ -550,9 +539,6 @@ In Figure \ref{fig:weinvri} (c) and (d) all heights are based on the $\frac{\fra
 
 
 \section{Conclusions}
-\subsection{The turbulence causing entrainment in the EZ is adequately resolved using LES at the resolution applied here.}
-
-According to FFT energy density spectra the modeled domain has a realistic inertial subrange.  The dominant energy containing structures in the EZ are smaller, and decay to the smallest resolved turbulent structures is steeper \citep{NChap14}. This is consistent with the assertion of \cite{GarciaMellado} that the EZ is separated into two sub-layers in terms of turbulence scales.  Several individual, coherent, thermals are seen at any given time, indicating that realistic turbulence is being simulated \citep{NChap14}.  The relationship of scaled entrainment rate to $Ri$ shown in the DNS study of \cite{GarciaMellado} appears to be reproduced here, even when the $\theta$ jump is defined across the EZ.  This indicates that the dominant processes causing entrainment are represented as effectively in this study as in their DNS study.
 
 \subsection{The gradient method for determining local CBL height, based on the potential temperature profile, is conceptually and practically flawed.  A regression or curve fitting method is better.}
 
