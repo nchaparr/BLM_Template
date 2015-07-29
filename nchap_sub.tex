@@ -187,7 +187,8 @@ In an LES motion on scales smaller than twice or more of the grid spacing is fil
 \label{subsubsec:}
 
 \cite{Deardorff72} demonstrated that dominant turbulent structures in penetrative convection scale with CBL height, which he referred to as the inversion height but measured as the height of minimum vertical heat flux ($z_{f}$ as in Fig. \ref{fig:hdefs}).  Since then, the distinction between the two has been clarified \citep{SullMoengStev} and here $h$ refers strictly to the height of maximum average potential temperature gradient as shown in Fig. \ref{fig:hdefs}.\\
-
+%/newtera/tera/phil/nchaparr/tera2_cp/nchaparr/Dec252013/python
+%plot_defs.py produces this on branch: height_defs
 \begin{figure}[htbp]
     \centering
     
@@ -222,6 +223,7 @@ whereas \cite{Sorbjan1} showed that with proximity to the CBL top the effects of
 
 A similar scale to $\delta h \gamma$ was introduced by \cite{GarciaMellado} to further their line of reasoning that the buoyancy in the upper EZ is determined by $\gamma$. A broad qualitative explanation is as follows: at $h$ much of the air is at the background (or initial) potential temperature $\overline{\theta}_{0}(h)$.  Some air at potential temperature $\theta = \overline{\theta}_{0}(h_{1})$ is brought down from the upper EZ limit ($h_{1}$) resulting in positive potential temperature fluctuations ($\theta^{'+}$) at $h$.\\
 
+%plot_defs.py produces this on branch: deltah_gamma
 \begin{figure}[htbp]
     \centering
     \includegraphics[scale=.32]{figures/deltah_gamma.pdf}
@@ -339,7 +341,7 @@ Publication & $\overline{w^{'}\theta^{'}}_{s}$& $\gamma$& Initial $\theta$ & $Ri
   
 \begin{figure}[htbp]
 \begin{minipage}[b]{0.5\linewidth}
-        %
+        %Pcolor_Peaks.py on branch rss_fit, using IPython QtConsole 3.1.0 Python 2.7.9 |Anaconda 2.2.0 (64-bit)|
         \subfloat[]{\label{main:a}
                 \includegraphics[scale=.31]{figures/rss_fit_high}}\\
         \end{minipage}             
@@ -382,22 +384,22 @@ The distribution of $h_{0}^{l}$ represents the range over which CBL height varie
 
 
 \begin{figure}[htbp]
-%\begin{minipage}[b]{0.5\linewidth}
+%ML_Height_Hist.py on branch: ML_Height_hist_5
         \begin{center}
         \subfloat[]{\label{main:}
-                
+                %45e344 (commit)
                 \includegraphics[scale=.3]{figures/Scaled_ML_Height_hist_2point5}}\\
 \end{center}
 \quad
 \begin{center}
         \subfloat[]{\label{main:}        
-                
+                %02c9b5 (commit)
                 \includegraphics[scale=.3]{figures/Scaled_ML_Height_hist_5}}\\      
 \end{center}         
 \quad
 \begin{center}
         \subfloat[]{\label{main:}          
-               
+               %4a72ab (commit)
                 \includegraphics[scale=.3]{figures/Scaled_ML_Height_hist_10}}\\      
 \end{center}       
 
@@ -413,14 +415,16 @@ The lowest $\frac{h^{l}_{0}}{h}$ decrease with decreased stability ($Ri$) causin
 
 \cite{SullMoengStev} separated the vertical heat flux in the EZ into four quadrants: upward moving warm, downward moving warm, upward moving cool and downward moving cool. They concluded that the net dynamic in the EZ was that of downward moving warm air. Here, the average downward moving warm quadrant ($\overline{w^{'-}\theta^{'+}}$) at $h$ represents the pockets of trapped or engulfed warm air that become mixed into the growing CBL.  So its magnitude can be taken as a measure of entrainment.  This increases in magnitude, with time as well as with increasing $(\overline{w^{'}\theta^{'}})_{s}$ \citep{NChap14}.  Partitioning $(\overline{w^{'-}\theta^{'+}})_{h}$ into its velocity and temperature components reveals complexity.  The velocity component, $\overline{w^{'-}}_{h}$  where $ \overline{\theta^{'}}_{h}>0$, is effectively scaled by $w_{*}$.  The curves representing the temperature component, $\overline{\theta^{'+}}_{h}$ where $\overline{w^{'}}_{h}<0$, vs time do not seem to collapse when scaled by $\theta_{*}$ \citep{NChap14}.  Fig. \ref{fig:downwarm_theta} (a) shows this component is scaled more effectively by the potential temperature scale introduced in Section \ref{subsubsec:tempscales}, $\delta h \gamma$.  Thus, $\gamma$ influences entrained warm air at $h$ more significantly than $(\overline{w^{'}\theta^{'}})_{s}$.\\ 
 \\   
-
+%plot_downwarm_h.py on branch downwarm
 \begin{figure}[htbp]
+%b5557c9 (commit)
 \begin{minipage}[b]{0.5\linewidth}
          \subfloat[]{\label{main:a}
                 \includegraphics[scale=.3]{figures/downwarm_theta.pdf}}\\
                      
 \end{minipage}             
 \quad
+%772a9 (commit)
 \begin{minipage}[b]{0.5\linewidth}
          \subfloat[]{\label{main:b}          
                \includegraphics[scale=.3]{figures/scaled_downwarm_theta1.pdf}}\\      
@@ -443,7 +447,7 @@ The importance of $\gamma$ is revealed again as the curves representing Equation
 
 \begin{figure}[htbp]
 \begin{minipage}[b]{0.5\linewidth}
-         
+        %branch: master, plot_theta_profs.py, 04cb3b  
         \subfloat[]{\label{main:}
                 \includegraphics[scale=.3]{figures/theta_grad_profs}}\\
 %        \subfloat[]{\label{main:}
@@ -453,7 +457,7 @@ The importance of $\gamma$ is revealed again as the curves representing Equation
 \quad
 \begin{minipage}[b]{0.5\linewidth}
         \subfloat[]{\label{main:}        
-         
+         %branch: master, plot_theta_profs.py, 96c220
                 \includegraphics[scale=.3]{figures/scaled_theta_grad_profs}}\\      
 %        \subfloat[]{\label{main:}          
           
@@ -461,8 +465,8 @@ The importance of $\gamma$ is revealed again as the curves representing Equation
        
 \end{minipage}
 \begin{minipage}[b]{0.5\linewidth}
-         
-%        \subfloat[]{\label{main:}
+%run get_limits.py then plot_height.py on branch scaleddeltahinvri         
+%        %branch: scaleddeltahinvri_for_old_els, get_limits.py and plot_height.py
 %                \includegraphics[scale=.3]{figures/theta_grad_profs}}\\
         \subfloat[]{\label{main:}
                 \includegraphics[scale=.3]{figures/scaleddeltahinvri}}\\
@@ -471,7 +475,7 @@ The importance of $\gamma$ is revealed again as the curves representing Equation
 \quad
 \begin{minipage}[b]{0.5\linewidth}
 %        \subfloat[]{\label{main:}        
-         
+%run get_limits.py on branch: plot_defs, 8d1fab (commit), then plot_height.py on branch: loglogscaleddektahinvri         
 %                \includegraphics[scale=.3]{figures/scaled_theta_grad_profs}}\\      
         \subfloat[]{\label{main:}          
           
@@ -501,7 +505,7 @@ In Fig. \ref{fig:weinvri} (a) and (b) the axes are in log-log coordinates and al
 
 \begin{figure}[htbp]
 \begin{minipage}[b]{0.5\linewidth}
-        
+        %98568f get_limits.py and plot_height.py
         \subfloat[]{\label{main:a}
                 \includegraphics[scale=.3]{figures/scaledweinvri_delta_f_GM.png}}\\
 %        \subfloat[]{\label{main:b}
@@ -510,7 +514,7 @@ In Fig. \ref{fig:weinvri} (a) and (b) the axes are in log-log coordinates and al
 \end{minipage}             
 \quad
 \begin{minipage}[b]{0.5\linewidth}
-        
+  %e4477b get_limits.py, ef6bfa plot_height.py      
   %      \subfloat[]{\label{main:a}
    %             \includegraphics[scale=.3]{figures/scaledweinvri_delta_f_GM.png}}\\
         \subfloat[]{\label{main:b}
@@ -518,7 +522,7 @@ In Fig. \ref{fig:weinvri} (a) and (b) the axes are in log-log coordinates and al
                      
 \end{minipage}             
 \begin{minipage}[b]{0.5\linewidth}
-        
+        %3b236f get_limits.py, 83b2617 plot_height.py
         \subfloat[]{\label{main:a}
                 \includegraphics[scale=.3]{figures/scaledweinvri_delta.png}}\\
        % \subfloat[]{\label{main:b}
@@ -528,7 +532,7 @@ In Fig. \ref{fig:weinvri} (a) and (b) the axes are in log-log coordinates and al
 \quad
 \begin{minipage}[b]{0.5\linewidth}
         %\subfloat[]{\label{main:c}          
-          
+          %06930 get_limits.py, 0b8ae75 plot_height.py
          %       \includegraphics[scale=.3]{figures/scaledweinvri_Delta_f_GM}}\\      
         \subfloat[]{\label{main:d}          
           
