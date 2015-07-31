@@ -13,6 +13,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{fix-cm}
 \documentclass[referee]{svjour3}
+\newcommand{\remarkpha}[1]{{ \bf PHA:  [ \footnotesize #1 ]}}
 
 \smartqed  % flush right qed marks, e.g. at end of proof
 %
@@ -69,12 +70,12 @@
 \graphicspath{{./figures/}}
 
 
-\title{The effects of inversion strenght  on idealized convective boundary layer entrainment%\thanks{Grants or other notes
+\title{The effects of inversion strength  on idealized convective boundary layer entrainment%\thanks{Grants or other notes
 %about the article that should go on the front page should be
 %placed here. General acknowledgments should be placed at the end of the article.}
 }
 
-%\titlerunning{Short form of title}        % if too long for running head
+\titlerunning{The effects of inversion strength}        % if too long for running head
 
 \author{N.~A.~Chaparro \and P.~H.~Austin \and D.~G.~Steyn
          %etc.
@@ -106,9 +107,9 @@
 
 \begin{abstract}
 
-Large eddy simulations are used to model  dry, shear-free, idealized convective boundary layer in the absence of large scale winds.  Ten member ensembles are calculated for a range of convective  Richardson numbers yielding the local height of the mixed layer, turbulent fluxes  and the average mixed layer height and entrainment zone depth. \\
+Large eddy simulations are used to  model a dry, shear-free, idealized convective boundary layer in the absence of large scale winds.  Ten member ensembles are calculated for a range of convective  Richardson numbers yielding the local height of the mixed layer, turbulent fluxes  and the average mixed layer height and entrainment zone depth. \\
 
-The variance of the local convective boundary layer height is found to decrease with increased stability at the boundary layer top.  Relationships of average entrainment rate and entrainment zone depth to convective Richardson number (Ri) agree with theory and the results of other studies.  Scaling of both the average mixed layer potential temperature profile and the depth of the entrainment zone is shown to depend on stability at the top of the boundary layer.   The  powerlaw relationship of both the entrainment rate and the entrainment zone depth to the convective Richardson number undergoes  a change in exponent with increasing Ri which is attributed to a change in entrainment mechanism with increasing stability.
+The variance of the local convective boundary layer height is found to decrease with increased stability at the boundary layer top.  Relationships of average entrainment rate and entrainment zone depth to convective Richardson number (Ri) agree with theory and the results of other studies.  Scaling of both the average mixed layer potential temperature profile and the depth of the entrainment zone are shown to depend on stability at the top of the boundary layer.   The  powerlaw relationship of both the entrainment rate and the entrainment zone depth to the convective Richardson number undergoes  a change in exponent with increasing Ri which is attributed to a change in entrainment mechanism with increasing stability.
 
 \end{abstract}
 \keywords{Convective boundary layer \and Entrainment \and Large eddy simulation \and Potential Temperature Profile}
@@ -117,11 +118,10 @@ The variance of the local convective boundary layer height is found to decrease 
 \label{intro}
 
 
-\subsection{Convective boundary layer (CBL) entrainment}
-\label{sec:cblent}
-Boundary layer (BL) height and the prediction thereof are important for calculating the concentration of any atmospheric species within the ML as well as the sizes of the turbulent structures.  Parameterizations for both CBL growth and EZ depth are required in mesoscale and general circulation models (GCMs).  It is an attractive goal to develop a robust set of scales for this region analogous to Monin-Obvukov Theory \citep{Stull-BLMetIntro, Traum11, SteynBaldHoff, StullNelEl, Sorbjan1}.\\
+Predicting the evolution of boundary layer (BL) height is important for calculating the concentration of atmospheric species with the mixed layer and the character of mixed layer turbulence.  Parameterizations for the growth of the  CBL and its capping entrainment zone (EZ) are used in both mesoscale and general circulation models.  Developing a robust set of scaling relations that relate these boundary layer characteristics to large-scale conditions has been the focus of numerous studies
+ \citep[e.g.][]{Stull-BLMetIntro, Traum11, SteynBaldHoff, StullNelEl, Sorbjan1}.\\
 
-The daytime CBL over land entrains air from the free atmosphere (FA) into a growing well mixed layer (ML).  The region over which entrainment occurs is called the EZ \citep{DearWill80}. A common, simplified conceptual model of this case is the dry, shear free CBL \citep{SullMoengStev, FedConzMir04, BrooksFowler2}. This model serves as an intellectually accessible way to understand the dynamic and complex CBL and its EZ.\\  
+The daytime CBL over land entrains air from the free atmosphere (FA) into a growing well mixed layer (ML).  The region over which entrainment occurs is called the EZ \citep{DearWill80}. A useful simplified conceptual model of this case is the dry, shear free CBL \citep{SullMoengStev, FedConzMir04, BrooksFowler2}. Although this model limits the focus of study to the relationship between convective turbulence and the overlying stable atmosphere, there remain open questions about the role played by buoyancy in determining the character of the top of the CBL.dynamic and complex CBL and its EZ.\\  
 
 CBL entrainment is initiated when pockets of warm stable air from above are trapped between or adjacent to impinging thermal plumes.  \citep{Traum11} summarize two categories of CBL entrainment:\\
 
@@ -134,7 +134,20 @@ Under stronger inversions, impinging thermal plumes distort the inversion interf
 
 \end{itemize}
 
-More recently, direct numerical simulations have  demonstrated that the EZ is subdivided in terms of length and buoyancy scales \citep{GarciaMellado}.  The lower region is comprised of mostly turbulent air with pockets of stable warmer air that are quickly mixed, and so scales with the convective scales. Whereas the upper region is mostly stable apart from the impinging thermals so scaling here is more influenced by the lapse rate ($\gamma$).  In the EZ the vertical heat flux, $\overline{w^{'}\theta^{'}}$, has opposite sign relative to that in the ML.  The fast updraughts are now relatively cool $\overline{w^{'+}\theta^{'-}}$.  In their analysis of the four $\overline{w^{'}\theta^{'}}$ quadrants \cite{SullMoengStev} concluded that the net dynamic in this region is downward motion of warm air ($\overline{w^{'-}\theta^{'+}}$) from the FA since the other three quadrants effectively cancel.\\
+Figure~\ref{fig:hdefs}a shows an idealized  snapshot of a CBL growing into a stable environment with potential temperature gradient $d\theta/dz = \gamma$.  In Figures~\ref{fig:hdefs}b the transition region between the CBL and the overlying atmosphere is demarcated using the normalized potential temperature gradient $d\theta/dz/\gamma$, and boundaries are drawn at heights $h_0$ and $h_1$ where the normalized gradient departs from and returns to 0.  An alternative way of identifying the EZ is shown in Figure~\ref{fig:hdefs}c, which shows the turbulent vertical flux profile $\overline{w^\prime \theta^\prime}$ normalized by its value at the surface $\overline{w^\prime \theta^\prime}_s$
+
+
+\begin{figure}[htbp]
+    \centering
+    
+    \includegraphics[scale=.5]{figures/height_defs.pdf}
+    \caption[label a, b c Height Definitions]{Height definitions based on the scaled average vertical profiles. The dashed line in the far left panel represents the initial average potential temperature profile and the solid line is that at a later time. In the middle panel $h$ is the location of the maximum scaled average potential temperature gradient, $h_{0}$ is the point at which it increases significantly from zero and $h_{1}$ is where it resumes 1.  $z_{f0}$, $z_{f}$ and $z_{f1}$ are the points at which the scaled vertical heat flux profile first crosses zero, is minimum and resumes zero. The EZ is shaded.}
+    \label{fig:hdefs} 
+\end{figure}
+
+Recently,  direct numerical simulations \citep{GarciaMellado} have  demonstrated that the height of the maximum buoyancy gradient ($h$ in Figure~\ref{fig:hdefs}b) separates the EZ with total thickness $\Delta h=h_1 - h_0$  into two layers, a bottom layer of thickness $d h= h-h_0$ and an upper layer of thickness $\delta h=h_1 - h$.   The lower region, in which $d h$ scales with the CBL depth $h$  is comprised of mostly turbulent air with pockets of stable warmer air that are quickly mixed. In contrast, the thickness $\delta h$ of the upper region impinging thermals so scaling here is more influenced by the lapse rate ($\gamma$).  
+
+Below we use large eddy simulation output to measure fluctuations in the total EZ thickness $\Delta h$ and show that 
 
 \subsection{CBL entrainment scales and scaling relationships for parametrizations}
 \label{subsec:scales}
@@ -143,13 +156,6 @@ More recently, direct numerical simulations have  demonstrated that the EZ is su
 
 \cite{Deardorff72} demonstrated that dominant turbulent structures in penetrative convection scale with CBL height, which he referred to as the inversion height but measured as the height of minimum vertical heat flux ($z_{f}$ as in Fig. \ref{fig:hdefs}).  Since then, the distinction between the two has been clarified \citep{SullMoengStev} and here $h$ refers strictly to the height of maximum average potential temperature gradient. Figure \ref{fig:hdefs} shows ...\\
 
-\begin{figure}[htbp]
-    \centering
-    
-    \includegraphics[scale=.5]{figures/height_defs.pdf}
-    \caption[label a, b c Height Definitions]{Height definitions based on the scaled average vertical profiles. The dashed line in the far left pannel represents the initial average potential temperature profile and the solid line is that at a later time. In the middle pannel $h$ is the location of the maximum scaled average potential temperature gradient, $h_{0}$ is the point at which it increases significantly from zero and $h_{1}$ is where it resumes 1.  $z_{f0}$, $z_{f}$ and $z_{f1}$ are the points at which the scaled vertical heat flux profile first crosses zero, is minumum and resumes zero. The EZ is shaded.}
-    \label{fig:hdefs} 
-\end{figure}
  
 
 \subsubsection{Deardorff (convective) velocity scale ($w_{*}$)}
@@ -185,11 +191,11 @@ A similar scale to $\delta h \gamma$ was introduced by \cite{GarciaMellado} to f
     \label{fig:deltahgamma}   % label should change
 \end{figure}
 
-\subsubsection{Convective richardson number ($Ri$)}
+\subsubsection{Convective Richardson number ($Ri$)}
 \label{subsubsec:}
 
 
-The convective Richardson number is a simplifed, bulk approximation to the flux Richardson number \citep{Stull-BLMetIntro}.  The natural choice of length and velocity and temperature difference scales are $h$, $w_{*}$ and the jump accross the EZ, $\Delta \theta$:
+The convective Richardson number is a simplified, bulk approximation to the flux Richardson number \citep{Stull-BLMetIntro}.  The natural choice of length and velocity and temperature difference scales are $h$, $w_{*}$ and the jump across the EZ, $\Delta \theta$:
 
 \begin{equation}
 Ri = \frac{\frac{g}{\overline{\theta}} \Delta \theta h}{w^{*2}}.
@@ -223,10 +229,10 @@ Below we use a large eddy simulation to ...
 
 \subsection{LES set up}
 
-The LES used in this study, System for Atmospheric Modelling (SAM)is an three-dimensional, anelastic model using dry static energy for its thermodynamic variable.  A Smagorinsky sub-grid scale closure was used for all simulations \citep{KhairRand}.
+The LES used in this study, System for Atmospheric Modeling (SAM)is an three-dimensional, anelastic model using dry static energy for its thermodynamic variable.  A Smagorinsky sub-grid scale closure was used for all simulations \citep{KhairRand}.
 
 \subsubsection{Domain and grid sizes}
-The dry shear free CBL and EZ was modelled using SAM.  An ensemble of 10 cases was run to obtain true ensemble averages and turbulent potential temperature fluctuations ($\theta^{'}$). Each case had a domain of area 3.2 x 4.8 km$^{2}$.  Grid numbers $n_{x}$, $n_{y}$ were chosen based on the optimal distribution across processor nodes. The vertical grid ($n_{z}=312$) was of higher resolution around the entrainment zone ($\Delta z = 5$m), lower below ($\Delta z = 25$m) and stretched above it ($\Delta z = 10 \ to \ 100 $m). This was guided by \cite{SullPat}'s LES resolution study of the CBL that showed how grid size effects the average profiles, as well as the extent of the inertial turbulence scale sub-range.\\
+The dry shear free CBL and EZ was modeled using SAM.  An ensemble of 10 cases was run to obtain true ensemble averages and turbulent potential temperature fluctuations ($\theta^{'}$). Each case had a domain of area 3.2 x 4.8 km$^{2}$.  Grid numbers $n_{x}$, $n_{y}$ were chosen based on the optimal distribution across processor nodes. The vertical grid ($n_{z}=312$) was of higher resolution around the entrainment zone ($\Delta z = 5$m), lower below ($\Delta z = 25$m) and stretched above it ($\Delta z = 10 \ to \ 100 $m). This was guided by \cite{SullPat}'s LES resolution study of the CBL that showed how grid size effects the average profiles, as well as the extent of the inertial turbulence scale sub-range.\\
 
 \subsubsection{Initial conditions}
 
@@ -240,11 +246,12 @@ The runs were initialized with a constant $(\overline{w^{'}\theta^{'}})_{s}$ act
     $\overline{w^{'}\theta^{'}_{s}}$ / $\gamma$ & 10 (Kkm$^{-1}$) & 5 (Kkm$^{-1}$) & 2.5 (Kkm$^{-1}$) \\ \hline
      150 (Wm$^{-2}$)& \hspace{2mm} {\color{red} \ding{116}} 150/10 &\hspace{3   mm}{\color{red} \ding{108}} 150/5\footnotemark &  \\ \hline
      100 (Wm$^{-2}$)& \hspace{2mm} {\color{black} \ding{116}} 100/10 & \hspace{2mm} {\color{black} \ding{108}} 100/5 & \\ \hline
-     60 (Wm$^{-2}$) & \hspace{2mm} {\color{offyellow} \ding{116}} 60/10 & \hspace{2mm} {\color{offyellow} \ding{108}} 60/5 & \hspace{2mm} {\color{offyellow} \ding{72}} 60/2.5\\ \hline
+     60 (Wm$^{-2}$) & \hspace{2mm} {\color{offyellow} \ding{116}} 60/10 & \hspace{2mm} {\color{offyellow} \ding{108}} 60/5 & \hspace{2mm} {\color{offyellow} \ding{72}} 60/2.5 %\hline
 \end{tabular}
 \label{fig:tableofruns}   
 \end{center}    
 \end{table}
+
 \footnotetext{Incomplete run: EZ exceeded high resolution vertical grid after 7 hours}
 
 \subsection{Comparison of domain, grid size and initial conditions}
@@ -294,7 +301,7 @@ Publication & $\overline{w^{'}\theta^{'}}_{s}$& $\gamma$& Initial $\theta$ & $Ri
 \end{table}
 
 \subsection{Tri-linear fit for local CBL height}
-\cite{SullMoengStev} determined local CBL height, i.e. that at an indivitual horizontal point, by locating the point of maximum $\frac{\partial \theta}{\partial z}$.  Analysis of the resulting distributions showed dependence of standard deviation and skewness on $Ri$.  The normalized standard deviation decreased with increased $Ri$ whereas skewness was almost bimodal; being negative at high $Ri$ and positive and low $Ri$.  Initially in this study, a similar method was applied and local CBL height distributions with lower $Ri$ were found to have positive skew.  Upon exhaustive inspection of local vertical $\theta$  profiles such as those in Fig. \ref{fig:rssfitshigh}, it became evident that at certain horizontal points high gradients well into the free atmosphere exceeded those within the EZ.  Locating the local ML height ($h^{l}_{0}$) using a multi-linear regression method based on that of \citep{Vieth} and described in \cite{NChap14} proved more reliable than the gradient method discussed above.  As shown in Fig. \ref{fig:rssfitshigh} a straight line is fit to each of the ML, EZ an FA.\\
+\cite{SullMoengStev} determined local CBL height, i.e. that at an individual horizontal point, by locating the point of maximum $\frac{\partial \theta}{\partial z}$.  Analysis of the resulting distributions showed dependence of standard deviation and skewness on $Ri$.  The normalized standard deviation decreased with increased $Ri$ whereas skewness was almost bimodal; being negative at high $Ri$ and positive and low $Ri$.  Initially in this study, a similar method was applied and local CBL height distributions with lower $Ri$ were found to have positive skew.  Upon exhaustive inspection of local vertical $\theta$  profiles such as those in Fig. \ref{fig:rssfitshigh}, it became evident that at certain horizontal points high gradients well into the free atmosphere exceeded those within the EZ.  Locating the local ML height ($h^{l}_{0}$) using a multi-linear regression method based on that of \citep{Vieth} and described in \cite{NChap14} proved more reliable than the gradient method discussed above.  As shown in Fig. \ref{fig:rssfitshigh} a straight line is fit to each of the ML, EZ an FA.\\
   
 \begin{figure}[htbp]
 \begin{minipage}[b]{0.5\linewidth}
@@ -336,6 +343,7 @@ Here the CBL height ($h$) is defined as the location of maximum scaled vertical 
 
 \subsubsection{Variation of local convective boundary layer height ($h_{0}^{l}$)}
 \label{subsubsec:loccblh}
+
 
 The distribution of $h_{0}^{l}$ represents the range over which CBL height varies in space so relates to the depth of the entrainment zone (EZ).  It widens with increasing $(\overline{w^{'}\theta^{'}})_{s}$ and narrows with increasing $\gamma$ \citep{NChap14}.  When scaled by $h$ in Fig. \ref{fig:localhdist}, the local ML height distribution narrows with increased $\gamma$.  The upper boundary seems to be constant at about 1.1($\times h$) , whereas the lower boundary increases.  When $h_{0}^{l}$s are lower and their distribution is narrower, the scaled versions have relatively larger spacing between bins and so higher numbers in each bin. At higher $(\overline{w^{'}\theta^{'}})_{s}$ there are fewer $\frac{h_{0}^{l}}{h}$ values with higher probabilities, but the width of the distributions seems more or less constant regardless of $(w^{'}\theta^{'})_{s}$.\\
 
@@ -550,5 +558,5 @@ NSERC CREATE-AAP and NSERC Discovery grants to Douw Steyn and Phil Austin (fundi
 
 %%% Local Variables:
 %%% mode: latex
-%%% TeX-master: "nchap_sub.tex"
+%%% TeX-master: t
 %%% End:
