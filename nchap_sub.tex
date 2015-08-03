@@ -70,12 +70,12 @@
 \graphicspath{{./figures/}}
 
 
-\title{The effects of inversion strength  on idealized convective boundary layer entrainment%\thanks{Grants or other notes
+\title{The effects of stability on idealized convective boundary layer entrainment%\thanks{Grants or other notes
 %about the article that should go on the front page should be
 %placed here. General acknowledgments should be placed at the end of the article.}
 }
 
-\titlerunning{The effects of inversion strength}        % if too long for running head
+\titlerunning{The effects of stability}        % if too long for running head
 
 \author{N.~A.~Chaparro \and P.~H.~Austin \and D.~G.~Steyn
          %etc.
@@ -134,8 +134,7 @@ Under stronger inversions, impinging thermal plumes distort the inversion interf
 
 \end{itemize}
 
-Figure~\ref{fig:hdefs}a shows an idealized  snapshot of a CBL growing into a stable environment with potential temperature gradient $d\theta/dz = \gamma$.  In Figures~\ref{fig:hdefs}b the transition region between the CBL and the overlying atmosphere is demarcated using the normalized potential temperature gradient $d\theta/dz/\gamma$, and boundaries are drawn at heights $h_0$ and $h_1$ where the normalized gradient departs from and returns to 0.  An alternative way of identifying the EZ is shown in Figure~\ref{fig:hdefs}c, which shows the turbulent vertical buoyancy flux profile $\overline{w^\prime \theta^\prime}$ normalized by its value at the surface $\overline{w^\prime \theta^\prime}_s$, and identifies the top and bottom of the entrainment zone as the heights at which the buoyancy flux crosses zero.  Below we will follow 
-\citetSullMoengStev} and use $h$ to denote height of maximum average potential temperature gradient.  We will 
+Figure~\ref{fig:hdefs}a shows an idealized  snapshot of a CBL growing into a stable environment with potential temperature gradient $d\theta/dz = \gamma$.  In Figures~\ref{fig:hdefs}b tghe entrainment zone between the CBL and the overlying atmosphere is demarcated using the normalized potential temperature gradient $(d\theta/dz)/\gamma$, and boundaries are drawn at heights $h_0$ and $h_1$ where the normalized gradient departs from and returns to 0.  An alternative way of identifying the EZ is shown in Figure~\ref{fig:hdefs}c, which shows the turbulent vertical buoyancy flux profile $\overline{w^\prime \theta^\prime}$ normalized by its value at the surface $\overline{w^\prime \theta^\prime}_s$, and identifies the top and bottom of the entrainment zone as the heights at which the buoyancy flux crosses zero.  
 
 \begin{figure}[htbp]
     \centering
@@ -145,9 +144,13 @@ Figure~\ref{fig:hdefs}a shows an idealized  snapshot of a CBL growing into a sta
     \label{fig:hdefs} 
 \end{figure}
 
+
+\remarkpha{Add summary of: } \citet{BrooksFowler2}, \citet{FedConzMir04}
+
+
 Recently,  direct numerical simulations \citep{GarciaMellado} have  demonstrated that under a stable inversion the  EZ, with total thickness $\Delta h=h_1 - h_0$  contains two layers, a bottom layer of thickness $d h= h-h_0$ and an upper layer of thickness $\delta h=h_1 - h$.   The lower region, in which $d h$ scales with the CBL depth $h$  is comprised of mostly turbulent air with pockets of stable warmer air that are quickly mixed. In contrast, the thickness $\delta h$ of the upper region is governed by thermals impinging on the stable over-lying air, so scaling here is more influenced by the lapse rate ($\gamma$).  
 
-Below we use large eddy simulation output to measure local and ensemble-averaged changes in the total EZ thickness $\Delta h$ and mixed layer depth $h$ as functions of surface heat flux and layer stability $\gamma$.  The convective Richardson number is a simplified, bulk approximation to the flux Richardson number \citep{Stull-BLMetIntro}.  The natural choice of length and velocity and temperature difference scales are $h$, $w_{*}$ and the jump across the EZ, $\Delta \theta$:
+Below we use large eddy simulation output to measure local and ensemble-averaged changes in the total EZ thickness $\Delta h$ and mixed layer depth $h$ as functions of surface heat flux and layer stability $\gamma$.  The convective Richardson number is a simplified, bulk approximation to the flux Richardson number \citep{Stull-BLMetIntro}.  The natural choice of length and velocity and temperature difference scales are $h$, $w_{*}$ and the jump across the -EZ, $\Delta \theta$:
 
 \begin{equation}
 Ri = \frac{\frac{g}{\overline{\theta}} \Delta \theta h}{w^{*2}}.
@@ -209,14 +212,15 @@ The dry shear free CBL and EZ was modeled using SAM.  An ensemble of 10 cases wa
 The runs were initialized with a constant $(\overline{w^{'}\theta^{'}})_{s}$ acting against a uniform $\gamma$.  Thus, the  $\theta$ jump arose from the overshoot of the thermals, rather than being initially imposed as in \cite{SullMoengStev} and \cite{BrooksFowler2}.  The 7 runs differ from each other based on surface heat flux ( $(\overline{w^{'}\theta^{'}})_{s}$ ) and initial potential temperature lapse rate ($\gamma$) and are summarized accordingly in Table \ref{fig:tableofruns}.
 
 \begin{table}[!ht]
-\caption{Runs in terms of $\overline{w^{'} \theta^{'}_{s}}$ and initial Lapse Rate $\gamma$.  Runs at weaker $\gamma$ and higher $\overline{w^{'} \theta^{'}_{s}}$ would have required a larger region of high vertical resolution, so were avoided.  The coloured symbols will be used in plots throughout.}
+\caption{Runs in terms of $\overline{w^{'} \theta^{'}_{s}}$ and initial Lapse Rate $\gamma$.  This mapping between initial conditions and  plot symbols will be used in subsequent plots.}
     \begin{center}
     \begin{tabular}{ | l | l | l | l |}
     \hline
     $\overline{w^{'}\theta^{'}_{s}}$ / $\gamma$ & 10 (Kkm$^{-1}$) & 5 (Kkm$^{-1}$) & 2.5 (Kkm$^{-1}$) \\ \hline
      150 (Wm$^{-2}$)& \hspace{2mm} {\color{red} \ding{116}} 150/10 &\hspace{3   mm}{\color{red} \ding{108}} 150/5\footnotemark &  \\ \hline
      100 (Wm$^{-2}$)& \hspace{2mm} {\color{black} \ding{116}} 100/10 & \hspace{2mm} {\color{black} \ding{108}} 100/5 & \\ \hline
-     60 (Wm$^{-2}$) & \hspace{2mm} {\color{offyellow} \ding{116}} 60/10 & \hspace{2mm} {\color{offyellow} \ding{108}} 60/5 & \hspace{2mm} {\color{offyellow} \ding{72}} 60/2.5 %\hline
+     60 (Wm$^{-2}$) & \hspace{2mm} {\color{offyellow} \ding{116}} 60/10 & \hspace{2mm} {\color{offyellow} \ding{108}} 60/5 & \hspace{2mm} {\color{offyellow} \ding{72}} 60/2.5 \\
+\hline
 \end{tabular}
 \label{fig:tableofruns}   
 \end{center}    
@@ -355,7 +359,7 @@ The lowest $\frac{h^{l}_{0}}{h}$ decrease with decreased stability ($Ri$) causin
 %b5557c9 (commit)
 \begin{minipage}[b]{0.5\linewidth}
          \subfloat[]{\label{main:a}
-                \includegraphics[scale=.3]{figures/downwarm_theta.pdf}}\\
+                \includegraphics[scale=.3]{figures/scaled_downwarm_theta.pdf}}\\
                      
 \end{minipage}             
 \quad
