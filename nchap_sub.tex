@@ -365,9 +365,9 @@ Here the CBL height ($h$) is defined as the location of maximum scaled vertical 
     \begin{tabular}{p{1.cm} p{3.cm} p{3cm} p{2.5cm}}
     
       CBL Height & ML $\overline{\theta}$ & $\theta$ Jump &$     Ri $\\ \hline 
-       $h$ & $\overline{\theta}_{ML} = \frac{1}{h}\int^{h}_{0}\overline{\theta}(z)dz$ & $\Delta \theta=\overline{\theta}(h_{1})-\overline{\theta}(h_{0})$ &      Ri $_{\Delta}=\frac{\frac{g}{\overline{\theta}_{ML}}\Delta \theta h}{w^{*2}}$  \\ [.3cm] 
+       $h$ & $\overline{\theta}_{ML} = \frac{1}{h}\int^{h}_{0}\overline{\theta}(z)dz$ & $\Delta \theta=\overline{\theta}(h_{1})-\overline{\theta}(h_{0})$ &      Ri $_{\Delta \theta}=\frac{\frac{g}{\overline{\theta}_{ML}}\Delta \theta h}{w^{*2}}$  \\ [.3cm] 
         
-       & &$\delta \theta = \overline{\theta}_{0}(h)- \overline{\theta}_{ML}$ & \    Ri $_{\delta}=\frac{\frac{g}{\overline{\theta}_{ML}} \delta \theta h}{w^{*2}}$ \\ \hline
+       & &$\delta \theta = \overline{\theta}_{0}(h)- \overline{\theta}_{ML}$ & \    Ri $_{\delta \theta}=\frac{\frac{g}{\overline{\theta}_{ML}} \delta \theta h}{w^{*2}}$ \\ \hline
       \end{tabular}
 
 \label{tab:reldefs}   
@@ -469,7 +469,7 @@ The importance of $\gamma$ is revealed again as the curves representing Equation
 %        %branch: scaleddeltahinvri_for_old_els, get_limits.py and plot_height.py
 %                \includegraphics[scale=.3]{figures/theta_grad_profs}}\\
         \subfloat[]{\label{main:}
-                \includegraphics[scale=.3]{figures/scaleddeltahinvri}}\\
+                \includegraphics[scale=.3]{figures/loglog_scaleddeltahinvri_4}}\\
                      
 \end{minipage}             
 \quad
@@ -479,11 +479,11 @@ The importance of $\gamma$ is revealed again as the curves representing Equation
 %                \includegraphics[scale=.3]{figures/scaled_theta_grad_profs}}\\      
         \subfloat[]{\label{main:}          
           
-                \includegraphics[scale=.3]{figures/loglog_scaleddeltahinvri_4}}\\      
+                \includegraphics[scale=.3]{figures/scaleddeltahinvri}}\\      
        
         \end{minipage}
 
-        \caption{The average (unscaled) vertical potential temperature gradient profiles for each run are plotted in (a) for comparison with the scaled versions ($\frac{\partial \overline{\theta}}{\partial z}/\gamma$) in (b). Solid lines show the thresholds, $\frac{\partial \overline{\theta}}{\partial z}=2$Kkm$^{-1}$ and $\frac{\partial \overline{\theta}}{\partial z}/\gamma=0.03$ respectively, used for determining the lower EZ boundary.  The corresponding plots of $\frac{\Delta h}{h} \propto Ri_{\Delta} ^{b}$ are plotted in log-log coordinates in (c) and (d) to show how curves separate according to $\gamma$ when heights are based on the unscaled profile, and collapse when based on the scaled version.  Legend key:{\color{red} \ding{116}} 150/10 \hspace{3mm}{\color{red} \ding{108}} 150/5 \hspace{2mm} {\color{black} \ding{116}} 100/10 \hspace{2mm} {\color{black} \ding{108}} 100/5 \hspace{2mm} {\color{offyellow} \ding{116}} 60/10 \hspace{2mm} {\color{offyellow} \ding{108}} 60/5 \hspace{2mm} {\color{offyellow} \ding{72}} 60/2.5.}
+        \caption{The average (unscaled) vertical potential temperature gradient profiles for each run are plotted in (a) for comparison with the scaled versions ($\frac{\partial \overline{\theta}}{\partial z}/\gamma$) in (b). Solid lines show the thresholds, $\frac{\partial \overline{\theta}}{\partial z}=2$Kkm$^{-1}$ and $\frac{\partial \overline{\theta}}{\partial z}/\gamma=0.03$ respectively, used for determining the lower EZ boundary.  The corresponding plots of $\frac{\Delta h}{h} \propto Ri_{\Delta \theta} ^{b}$ are plotted in log-log coordinates in (c) and (d) to show how curves separate according to $\gamma$ when heights are based on the unscaled profile, and collapse when based on the scaled version.  Legend key:{\color{red} \ding{116}} 150/10 \hspace{3mm}{\color{red} \ding{108}} 150/5 \hspace{2mm} {\color{black} \ding{116}} 100/10 \hspace{2mm} {\color{black} \ding{108}} 100/5 \hspace{2mm} {\color{offyellow} \ding{116}} 60/10 \hspace{2mm} {\color{offyellow} \ding{108}} 60/5 \hspace{2mm} {\color{offyellow} \ding{72}} 60/2.5.}
         \label{fig:scaleddeltahinvri}
 \end{figure}
 
