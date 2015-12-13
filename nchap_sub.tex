@@ -151,6 +151,22 @@ c)  $h$ is the location of the maximum scaled average potential temperature grad
     \label{fig:hdefs} 
 \end{figure}
 
+\begin{table}[htbp]
+\caption[Height definitions]{Definitions based on the vertical $\overline{\theta}$ profile in Figure \ref{fig:hdefs}. $\Delta \theta$ and $\delta \theta$ are the temperature jumps taken accross the entrainment zone, and at the CBL top ($h$ or $z_{f0}$) respectively. To obtain those based on the $\overline{w^{'}\theta^{'}}$ profile, replace $h_{0}$, $h$ and $h_{0}$ with $z_{f0}$, $z_{f}$ and $z_{f1}$}.
+
+
+    \begin{tabular}{p{1.cm} p{3.cm} p{3cm} p{2.5cm}}
+    
+      CBL Height & ML $\overline{\theta}$ & $\theta$ Jump &$     Ri $\\ \hline 
+       $h$ & $\overline{\theta}_{ML} = \frac{1}{h}\int^{h}_{0}\overline{\theta}(z)dz$ & $\Delta \theta=\overline{\theta}(h_{1})-\overline{\theta}(h_{0})$ &      Ri $_{\Delta}=\frac{\frac{g}{\overline{\theta}_{ML}}\Delta \theta h}{w^{*2}}$  \\ [.3cm] 
+        
+       & &$\delta \theta = \overline{\theta}_{0}(h)- \overline{\theta}_{ML}$ & \    Ri $_{\delta}=\frac{\frac{g}{\overline{\theta}_{ML}} \delta \theta h}{w^{*2}}$ \\ \hline
+      \end{tabular}
+
+\label{tab:reldefs}   
+    
+\end{table}
+
 
 \remarkpha{Add summary of: } \citet{Brooks12}, \citet{Fedorovich04}
 
@@ -325,21 +341,6 @@ Publication & $\overline{w^{'}\theta^{'}}_{s}$& $\gamma$& Initial $\theta$ & $Ri
 
 Here the CBL height ($h$) is defined as the location of maximum scaled vertical $\overline{\theta}$ gradient as in Figure \ref{fig:hdefs}.  The lower and upper EZ boundaries ($h_{0}$ and $h_{1}$) are then the points at which $\frac{\frac{\partial \overline{\theta}}{\partial z}}{\gamma}$ significantly exceeds zero and where it resumes $1$.  The lower boundary requires a choice of a threshold value which should be small, positive and less than $1$. \cite{Fedorovich04} and \cite{Brooks12} defined the EZ in terms of the vertical $\overline{w^{'}\theta^{'}}$ profiles as in Figure \ref{fig:hdefs} but disagreed on the shape of the relationship of scaled EZ depth to $Ri$ (equation 2.1).  As well as observing this relationship using the height definitions based on the $\frac{\frac{\partial \overline{\theta}}{\partial z}}{\gamma}$ profile, definitions based on the $\frac{\overline{w^{'}\theta^{'}}}{(\overline{w^{'}\theta^{'}})_{s}}$ profile are applied to enable comparison with \cite{Brooks12}, \cite{Fedorovich04} and \cite{Garcia14}.\\  
 
-\begin{table}[htbp]
-\caption[Height definitions]{Definitions based on the vertical $\overline{\theta}$ profile in Figure \ref{fig:hdefs}. $\delta \theta$ and $\Delta \theta$ are the temperature jumps corresponding to the zero and first order models respectively. To obtain those based on the $\overline{w^{'}\theta^{'}}$ profile, replace $h_{0}$, $h$ and $h_{0}$ with $z_{f0}$, $z_{f}$ and $z_{f1}$}
-
-
-    \begin{tabular}{p{1.cm} p{3.cm} p{3cm} p{2.5cm}}
-    
-      CBL Height & ML $\overline{\theta}$ & $\theta$ Jump &$     Ri $\\ \hline 
-       $h$ & $\overline{\theta}_{ML} = \frac{1}{h}\int^{h}_{0}\overline{\theta}(z)dz$ & $\Delta \theta=\overline{\theta}(h_{1})-\overline{\theta}(h_{0})$ &      Ri $_{\Delta}=\frac{\frac{g}{\overline{\theta}_{ML}}\Delta \theta h}{w^{*2}}$  \\ [.3cm] 
-        
-       & &$\delta \theta = \overline{\theta}_{0}(h)- \overline{\theta}_{ML}$ & \    Ri $_{\delta}=\frac{\frac{g}{\overline{\theta}_{ML}} \delta \theta h}{w^{*2}}$ \\ \hline
-      \end{tabular}
-
-\label{tab:reldefs}   
-    
-\end{table}
 
 \section{Results}
 \subsection{Entrainment zone structure}
