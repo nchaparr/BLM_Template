@@ -5,10 +5,7 @@
 
 6) Fig. 5 scaled_downwarm_theta:  text letters inside boxes (NC) I think we should remove this plot and instead refer to the thesis.(NC)  
 
-7) Fig. 6: theta_grad_profs: text letters inside boxes -- change axis labels for c) and d) per Douw's comment
-       c) and d) y axes are different? (NC) the axes are the same, but heights are based on the unscaled (a) and scaled profiles (b)(NC)
 
-8) Figs 7: scaledweinvri_delt_f_GM  -- text letters inside boxes  -- change axes  to swap \Delta for \delta
 
 Done
    
@@ -21,3 +18,8 @@ Done
 4) Fig 3 rss_fit_hight:  text leters inside figure. Don't we mean h, not h_0 (Fig. 1) in this discussion (NC) we mean h_0 i.e. mixed layer height (NC)
 
 5) Fig. 4 ML_Height_hist_5: text letters inside figure
+
+7) Fig. 6: theta_grad_profs: text letters inside boxes -- change axis labels for c) and d) per Douw's comment
+       c) and d) y axes are different? (NC) the axes are the same, but heights are based on the unscaled (a) and scaled profiles (b)(NC)
+
+8) Figs 7: scaledweinvri_delt_f_GM  -- text letters inside boxes  -- change axes  to swap \Delta for \delta
