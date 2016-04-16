@@ -107,9 +107,11 @@
 
 \begin{abstract}
 
+Fundamentals of convective boundary layer entrainment, such as the dependence of the entrainment rate and entrain-ment zone depth on the convective Richardson number, have been estab-lished but there is still unresolved discussion about the form of these rela-tionships. Details regarding the structure of the entrainment zone continue to emerge. The variety of convective boundary layer height and entrainment zone depth definitions adds further complexity. The study described here aims to join this ongoing discussion while clarifying the resolution required to capture convective boundary layer entrainment by a comparison with a recent direct numerical simulation.\\
+
 Large eddy simulations (LES) are used to  model a dry, shear-free, idealized convective boundary layer (CBL) in the absence of large scale winds.  Ten member ensembles are calculated for a range of convective  Richardson numbers yielding the local height of the mixed layer, turbulent fluxes  and the average mixed layer height and entrainment zone depth.\\
 
-A new length scale is introduced to measure the thickness of the entrainment zone.  This length scale, based on the gradient in the mean potential temperature profile, captures the time-integrated influence of the vertical buoyancy flux divergence in the boundary layer.  A convective Richardson number ($Ri$) based on this scale controls the non-dimensional entrainment zone thickness across the parameter space of the simulations.   It is also shown that the LES, with a vertical grid spacing of 5 meters through the inversion/mixed layer interface, reproduces the two-layer structure of the entrainment zone seen in high-resolution direct numerical simulations as well as the powerlaw relationship of the entrainment rate to $Ri$.  The entrainment rate scaling undergoes a change in exponent with increasing $Ri$ which is attributed to a change in entrainment mechanism with increasing stability.
+A new measure of Mixed Layer height is introduced which serves as the lower boundary of the Entrainment Zone.  This length scale, based on the gradient in the mean potential temperature profile, captures the time-integrated influence of the vertical buoyancy flux divergence in the boundary layer. The corresponding EZ exhibits interesting scaling behaviour with respect to stability while obeying the relevant power law relationships to convective richardson number. It is also shown that the LES, with a vertical grid spacing of 5 meters through the inversion/mixed layer interface, reproduces the two-layer structure of the entrainment zone seen in high-resolution direct numerical simulations as well as the powerlaw relationship of the entrainment rate to $Ri$.  The entrainment rate scaling undergoes a change in exponent with increasing $Ri$ which is attributed to a change in entrainment mechanism with increasing stability.
 
 \end{abstract}
 \keywords{Convective boundary layer \and Entrainment \and Large eddy simulation \and Potential Temperature Profile}
@@ -133,14 +135,15 @@ Under stronger inversions, impinging thermal plumes distort the inversion interf
 
 \end{itemize}
 
-\remarkpha{swap b and c and add letters a, b, c to boxes, and gamma to box a}
+
+The idealized convecitve boundary layer is comprised of a mixed layer (ML), and an entrainmnet zone (EZ) as represented in Figure (insert ref).  Potential temperature is close to uniform in the ML and increases with respect to time due to ($\overline{w^{'}\theta^{'}}_{s}$)s and the downward flux of entrained stable air at the top. ML turbulence near the ground is dominated by warm updraughts and cool downdraughts. With proximity to the ML top, the updraughts become relatively cool and warmer FA air from above is drawn downward, so in the ML $\overline{w^{'}\theta^{'}}_{s}$  is positive and decreasing. Directly above the ML the air is stable with intermittent turbulence and, on average, transitions from a uniform ML potential temperature to a stable lapse rate ($\gamma$).
+
+*****sentence about history of h (flux definition, gradient definition) compare entrainmnet zone deifitions.  
 
 
-\remarkpha{Setup justification for new EZ scale here.   Acknowledge that our definition includes a region of positive buoyancy flux, but it is still related to entrainment because ...}
+\remarkpha{Setup justification for new EZ scale here.   Acknowledge that our definition includes a region of positive buoyancy flux, but it is still related to entrainment because ...}.  why we use gamma and surface heat flux. mention how slope of flux varies with gamma.  how scales are influenced by both. scavange all this from the thesis.  introduce z enc or $L_0$. \remarkpha{... perhaps -- because it exhibits non-trivial scaling behaviour beyond that of zenc?}
 
-\remarkpha{... perhaps -- because it exhibits non-trivial scaling behaviour beyond that of zenc?}
-
-Figure~\ref{fig:hdefs}a shows an idealized  snapshot of a CBL growing into a stable environment with potential temperature gradient $d\theta/dz = \gamma$.  As \citet{Brooks12} note, there is no universally accepted definition of the entrainment zone. In Figure~\ref{fig:hdefs}b the entrainment zone is defined following as $z_{f1} - z_{f0}$, using the region over which the scaled buoyancy flux profile is negative.  Identifying the EZ as the region over which the vertical buoyancy flux is negative is difficult using either simulation results or observational data.  \citet{Cohn00} and \citet{Fedorovich04} use the heights at which the vertical gradient of $\theta_{bar}$ exceeds a threshold as a proxy for the flux definition.  Figure~\ref{fig:hdefs}c shows a different estimate using the heights $h_1$ and $h_0$ at which the scaled gradient of the mean potential temperature first crosses a threshold value from below and then returns to near-zero value in the inversion.  In the sections below we will use $\Delta = h_1 - h_0$ in all parameters that are scaled by the temperature gradient profile definition of the entrainment zone thickness.
+Figure \ref{fig:hdefs}a shows an idealized  snapshot of a CBL growing into a stable environment with potential temperature gradient $d\theta/dz = \gamma$.  As \citet{Brooks12} note, there is no universally accepted definition of the entrainment zone. In Figure \ref{fig:hdefs} the entrainment zone is defined following as $z_{f1} - z_{f0}$, using the region over which the scaled buoyancy flux profile is negative.  Identifying the EZ as the region over which the vertical buoyancy flux is negative is difficult using either simulation results or observational data.  \citet{Cohn00} and \citet{Fedorovich04} use the heights at which the vertical gradient of $\theta_{bar}$ exceeds a threshold as a proxy for the flux definition.  Figure~\ref{fig:hdefs}c shows a different estimate using the heights $h_1$ and $h_0$ at which the scaled gradient of the mean potential temperature first crosses a threshold value from below and then returns to near-zero value in the inversion.  In the sections below we will use $\Delta = h_1 - h_0$ in all parameters that are scaled by the temperature gradient profile definition of the entrainment zone thickness.
 
 \begin{figure}[htbp]
     \centering
@@ -152,7 +155,7 @@ c)  $h$ is the location of the maximum scaled average potential temperature grad
 \end{figure}
 
 \begin{table}[htbp]
-\caption[Height definitions]{Definitions based on the vertical $\overline{\theta}$ profile in Figure \ref{fig:hdefs}. $\Delta \theta$ and $\delta \theta$ are the temperature jumps taken accross the entrainment zone, and at the CBL top ($h$ or $z_{f0}$) respectively. To obtain those based on the $\overline{w^{'}\theta^{'}}$ profile, replace $h_{0}$, $h$ and $h_{0}$ with $z_{f0}$, $z_{f}$ and $z_{f1}$}.
+  \caption[Height definitions]{Definitions based on the vertical $\overline{\theta}$ profile in Figure \ref{fig:hdefs}. $\Delta \theta$ and $\delta \theta$ are the temperature jumps taken accross the entrainment zone, and at the CBL top ($h$ or $z_{f0}$) respectively. To obtain those based on the $\overline{w^{'}\theta^{'}}$ profile, replace $h_{0}$, $h$ and $h_{0}$ with $z_{f0}$, $z_{f}$ and $z_{f1}$}.
 
 
     \begin{tabular}{p{1.cm} p{3.cm} p{3cm} p{2.5cm}}
